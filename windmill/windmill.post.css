@@ -1,0 +1,1031 @@
+@use postcss-cssnext;
+:root {
+	--windmill-dark: #14222D;
+	--windmill-medium-dark: #508BB3;
+	--windmill-medium: #6096C4;
+	--windmill-medium-light: #649ECD;
+	--windmill-light: #B6E2FF;
+}
+
+.windmill {
+	position: relative;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+	overflow: hidden;
+	background: var(--windmill-medium-light);
+
+	&__sun {
+		position: absolute;
+		height: 30px;
+		width: 30px;
+		top: 145px;
+		left: 245px;
+		border-radius: 100%;
+		background: var(--windmill-light);
+		box-shadow: 0 0 300px 80px var(--windmill-light), 0 0 200px 40px var(--windmill-light), 0 0 50px 10px var(--windmill-light)
+	}
+
+	&__slice-4 {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 179px;
+		left: 105px;
+		border-left:300px solid transparent;
+		border-right: 300px solid transparent;
+		border-bottom: 250px solid var(--windmill-medium-light);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 55px;
+			left: -70px;
+			border-left: 180px solid transparent;
+			border-right: 180px solid transparent;
+			border-bottom: 195px solid var(--windmill-medium-light);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 80px;
+			left: 60px;
+			border-left: 120px solid transparent;
+			border-right: 120px solid transparent;
+			border-bottom: 170px solid var(--windmill-medium-light);
+		}
+
+		& div {
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 95px;
+			left: -392px;
+			border-left: 170px solid transparent;
+			border-right: 170px solid transparent;
+			border-bottom: 155px solid var(--windmill-medium-light);
+
+			&:after {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				top: 20px;
+				left: -115px;
+				border-left: 150px solid transparent;
+				border-right: 150px solid transparent;
+				border-bottom: 135px solid var(--windmill-medium-light);
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				top: -38px;
+				left: -105px;
+				border-left: 220px solid transparent;
+				border-right: 220px solid transparent;
+				border-bottom: 195px solid var(--windmill-medium-light);
+			}
+		}
+	}
+	&__slice-3 {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 321px;
+		left: -15px;
+		border-left: 320px solid transparent;
+		border-right: 320px solid transparent;
+		border-bottom: 150px solid var(--windmill-medium);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 23px;
+			left: -78px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 31px;
+			left: 89px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium);
+		}
+	}
+	&__slice-3 &__tree-right {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 2px;
+		left: 33px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 20px solid var(--windmill-medium);
+		opacity: .5;
+		
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 15px;
+			left: 36px;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 25px solid var(--windmill-medium);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -2px;
+			left: -19px;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-bottom: 16px solid var(--windmill-medium);
+		}
+	}
+	&__slice-3 &__tree-left {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: -4px;
+		left: -30px;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-bottom: 20px solid var(--windmill-medium);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 11px;
+			left: -12px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 19px;
+			left: -46px;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-bottom: 20px solid var(--windmill-medium);
+		}
+	}
+	&__slice-2 {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 342px;
+		left: 205px;
+		border-left: 250px solid transparent;
+		border-right: 250px solid transparent;
+		border-bottom: 110px solid var(--windmill-medium-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 13px;
+			left: 46px;
+			border-left: 2px solid transparent;
+			border-right: 2px solid transparent;
+			border-bottom: 10px solid var(--windmill-medium-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 10px;
+			left: 39px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 12px solid var(--windmill-medium-dark);
+		}
+	}
+	&__slice-2 &__tree-right {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 6px;
+		left: -45px;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 17px var(--windmill-medium-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -16px;
+			left: 13px;
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-bottom: 24px solid var(--windmill-medium-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -11px;
+			left: 26px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium-dark);
+		}
+	}
+	&__slice-2 &__tree-middle {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 26px;
+		left: -88px;
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-bottom: 15px solid var(--windmill-medium-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -13px;
+			left: 7px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 24px solid var(--windmill-medium-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -18px;
+			left: 21px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 28px solid var(--windmill-medium-dark);
+		}
+	}
+	&__slice-2 &__tree-left {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 41px;
+		left: -151px;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-bottom: 30px solid var(--windmill-medium-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 2px;
+			left: 8px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 20px solid var(--windmill-medium-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -10px;
+			left: 19px;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 28px solid var(--windmill-medium-dark);
+		}
+	}
+	&__slice-1 {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 190px;
+		left: 0px;
+		border-right: 400px solid transparent;
+		border-bottom: 315px solid var(--windmill-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 150px;
+			left: 390px;
+			border-left: 230px solid transparent;
+			border-right: 520px solid transparent;
+			border-bottom: 175px solid var(--windmill-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 400px;
+			height: 80px;
+			top: 240px;
+			left: 180px;
+			border-radius: 100% 100% 0 0;
+			background: var(--windmill-dark);
+		}
+	}
+	&__slice-1 &__tree-right {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: 112px;
+		left: 747px;
+		border-left: 26px solid transparent;
+		border-right: 26px solid transparent;
+		border-bottom: 120px solid var(--windmill-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 10px;
+			height: 20px;
+			top: 60px;
+			left: -49px;
+			background: var(--windmill-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			top: 14px;
+			left: -69px;
+			background: var(--windmill-dark);	
+			border-radius: 50% 0 50% 50%;
+			transform: rotate(-45deg);
+		}
+	}
+	&__slice-1 &__tree-left {
+		position: absolute;
+		width: 0;
+		height: 0;
+		top: -42px;
+		left: 40px;
+		border-left: 26px solid transparent;
+		border-right: 26px solid transparent;
+		border-bottom: 120px solid var(--windmill-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 187px;
+			left: 461px;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-bottom: 80px solid var(--windmill-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: 88px;
+			left: 47px;
+			border-left: 16px solid transparent;
+			border-right: 16px solid transparent;
+			border-bottom: 75px solid var(--windmill-dark);
+		}
+	}
+
+	&__clouds {
+		position: absolute;
+	}
+	&__cloud {
+		position: absolute;
+		width: 200px;
+		height: 40px;
+		border-radius: 40px;
+		background: var(--windmill-light);
+		opacity: .3;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: -20px;
+			left: 30px;
+			width: 100px;
+			height: 30px;
+			border-radius: 20px;
+			background: var(--windmill-light);
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			top: -30px;
+			left: 70px;
+			width: 100px;
+			height: 50px;
+			border-radius: 50px;
+			background: var(--windmill-light);
+		}
+
+		&:nth-child(1) {
+			top: 140px;
+			left: 150px;
+			animation: cloud 58s linear infinite;
+			animation-delay: -20s;
+		}
+		&:nth-child(2) {
+			top: 210px;
+			left: 30px;
+			transform: scale(.4);
+			animation: cloud 60s linear infinite;
+			animation-delay: -12s;
+		}
+		&:nth-child(3) {
+			top: 270px;
+			left: 650px;
+			transform: scale(.3);
+			animation: cloud 62s linear infinite;
+			animation-delay: -10s;
+		}
+		&:nth-child(4) {
+			top: 260px;
+			left: 360px;
+			transform: scale(.8);
+			animation: cloud 64s linear infinite;
+			animation-delay: -30s;
+		}
+		&:nth-child(5) {
+			top: 90px;
+			left: 500px;
+			transform: scale(.5);
+			animation: cloud 56s linear infinite;
+			animation-delay: -25s;
+		}
+		&:nth-child(6) {
+			top: 140px;
+			left: 710px;
+			transform: scale(.7);
+			animation: cloud 60s linear infinite;
+			animation-delay: -50s;
+		}
+	}
+
+	&__windmill {
+		position: absolute;
+		bottom: 100px;
+		right: 130px;
+		width: 60px;
+		border-style: solid;
+		border-color: var(--windmill-dark) transparent;
+		border-width: 0 10px 135px;
+
+		&:after {
+			content: '';
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			top: 7px;
+			left: 25px;
+			transform: rotate(45deg);
+			background: var(--windmill-light);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			top: -48px;
+			left: -12px;
+			border-left: 40px solid transparent;
+			border-right: 40px solid transparent;
+			border-bottom: 50px solid var(--windmill-dark);
+		}
+	}
+	&__blades {
+		position: absolute;
+		top: 6px;
+		left: 30px;
+		animation: blades 12s linear infinite;
+	}
+	&__blade {
+		position: absolute;
+		height: 80px;
+		width: 24px;
+		border: 2px solid var(--windmill-dark);
+
+		&:after {
+			content: '';
+			position: absolute;
+			top: 15px;
+			left: -2px;
+			height: 14px;
+			width: 24px;
+			border: 2px solid var(--windmill-dark);
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 47px;
+			left: -2px;
+			height: 14px;
+			width: 24px;
+			border: 2px solid var(--windmill-dark);
+		}
+
+		&:nth-child(1) {
+			top: -84px;
+			left: -13px;
+		}
+		&:nth-child(2) {
+			bottom: -84px;
+			left: -13px;
+		}
+		&:nth-child(3) {
+			transform: rotate(90deg);
+			top: -43px;
+			left: -56px;
+		}
+		&:nth-child(4) {
+			transform: rotate(90deg);
+			top: -43px;
+			left: 28px;
+		}
+	}
+
+	&__snowflakes {
+		position: absolute;
+	}
+	&__snowflake {
+		position: absolute;
+		background: var(--windmill-light);
+		transform: rotate(45deg);
+		top: -200px;
+		animation: snowflake 30s linear infinite;
+		opacity: .5;
+
+		&:before {
+			content: '';
+			position: absolute;
+			background: var(--windmill-light);
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			background: var(--windmill-light);
+		}
+	}
+	&__snowflake:nth-child(1) {
+		height: 5px;
+		width: 5px;
+		left: 100px;
+		animation-delay: 20s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -15px;
+			top: 137px;
+		}
+		&:after {
+			height: 5px;
+			width: 5px;
+			left: 40px;
+			top: 320px;
+		}
+	}
+	&__snowflake:nth-child(2) {
+		height: 5px;
+		width: 5px;
+		left: 200px;
+		animation-delay: 10s;
+
+		&:before {
+			height: 5px;
+			width: 5px;
+			left: -157px;
+			top: 226px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: -51px;
+			top: 381px;
+		}
+	}
+	&__snowflake:nth-child(3) {
+		height: 5px;
+		width: 5px;
+		left: 300px;
+
+		&:before {
+			height: 6px;
+			width: 6px;
+			left: -155px;
+			top: 186px;
+		}
+		&:after {
+			height: 5px;
+			width: 5px;
+			left: -57px;
+			top: 109px;
+		}
+	}
+	&__snowflake:nth-child(4) {
+		height: 8px;
+		width: 8px;
+		left: 400px;
+		animation-delay: 14s;
+
+		&:before {
+			height: 8px;
+			width: 8px;
+			left: -96px;
+			top: 215px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: -206px;
+			top: 71px;
+		}
+	}
+	&__snowflake:nth-child(5) {
+		height: 7px;
+		width: 7px;
+		left: 500px;
+		animation-delay: -24s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -244px;
+			top: 96px;
+		}
+		&:after {
+			height: 7px;
+			width: 7px;
+			left: 100px;
+			top: 217px;
+		}
+	}
+	&__snowflake:nth-child(6) {
+		height: 8px;
+		width: 8px;
+		left: 600px;
+
+		&:before {
+			height: 8px;
+			width: 8px;
+			left: 110px;
+			top: 150px;
+		}
+		&:after {
+			height: 8px;
+			width: 8px;
+			left: 30px;
+			top: 276px;
+		}
+	}
+	&__snowflake:nth-child(7) {
+		height: 6px;
+		width: 6px;
+		left: 700px;
+		animation-delay: -22s;
+
+		&:before {
+			height: 6px;
+			width: 6px;
+			left: 247px;
+			top: 220px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 143px;
+			top: 306px;
+		}
+	}
+	&__snowflake:nth-child(8) {
+		height: 6px;
+		width: 6px;
+		left: 800px;
+		animation-delay: -17s;
+
+		&:before {
+			height: 6px;
+			width: 6px;
+			left: 10px;
+			top: 343px;
+		}
+		&:after {
+			height: 8px;
+			width: 8px;
+			left: -105px;
+			top: 239px;
+		}
+	}
+	&__snowflake:nth-child(9) {
+		height: 7px;
+		width: 7px;
+		left: 900px;
+
+		&:before {
+			height: 8px;
+			width: 8px;
+			left: 133px;
+			top: 211px;
+		}
+		&:after {
+			height: 5px;
+			width: 5px;
+			left: -65px;
+			top: 243px;
+		}
+	}
+	&__snowflake:nth-child(10) {
+		height: 7px;
+		width: 7px;
+		left: 1000px;
+		animation-delay: 17s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -119px;
+			top: 207px;
+		}
+		&:after {
+			height: 7px;
+			width: 7px;
+			left: 166px;
+			top: 4px;
+		}
+	}
+	&__snowflake:nth-child(11) {
+		height: 4px;
+		width: 4px;
+		left: 150px;
+		animation-delay: -22s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -117px;
+			top: 259px;
+		}
+		&:after {
+			height: 9px;
+			width: 9px;
+			left: 230px;
+			top: 81px;
+		}
+	}
+	&__snowflake:nth-child(12) {
+		height: 7px;
+		width: 7px;
+		left: 250px;
+
+		&:before {
+			height: 6px;
+			width: 6px;
+			left: -17px;
+			top: 226px;
+		}
+		&:after {
+			height: 8px;
+			width: 8px;
+			left: 33px;
+			top: 64px;
+		}
+	}
+	&__snowflake:nth-child(13) {
+		height: 5px;
+		width: 5px;
+		left: 350px;
+		animation-delay: 19s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -138px;
+			top: 192px;
+		}
+		&:after {
+			height: 7px;
+			width: 7px;
+			left: 241px;
+			top: 20px;
+		}
+	}
+	&__snowflake:nth-child(14) {
+		height: 4px;
+		width: 4px;
+		left: 450px;
+		animation-delay: 15s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -173px;
+			top: 222px;
+		}
+		&:after {
+			height: 5px;
+			width: 5px;
+			left: 236px;
+			top: 27px;
+		}
+	}
+	&__snowflake:nth-child(15) {
+		height: 7px;
+		width: 7px;
+		left: 550px;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -131px;
+			top: 241px;
+		}
+		&:after {
+			height: 7px;
+			width: 7px;
+			left: 426px;
+			top: 128px;
+		}
+	}
+	&__snowflake:nth-child(16) {
+		height: 5px;
+		width: 5px;
+		left: 650px;
+		animation-delay: 22s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -154px;
+			top: 232px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 126px;
+			top: 123px;
+		}
+	}
+	&__snowflake:nth-child(17) {
+		height: 5px;
+		width: 5px;
+		left: 750px;
+		animation-delay: -8s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -178px;
+			top: 284px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 150px;
+			top: 208px;
+		}
+	}
+	&__snowflake:nth-child(18) {
+		height: 5px;
+		width: 5px;
+		left: 850px;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -165px;
+			top: 247px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 110px;
+			top: 216px;
+		}
+	}
+	&__snowflake:nth-child(19) {
+		height: 5px;
+		width: 5px;
+		left: 950px;
+		animation-delay: -13s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -14px;
+			top: 362px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 226px;
+			top: 243px;
+		}
+	}
+	&__snowflake:nth-child(20) {
+		height: 5px;
+		width: 5px;
+		left: 50px;
+		animation-delay: -9s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -194px;
+			top: 255px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 246px;
+			top: 233px;
+		}
+	}
+	&__snowflake:nth-child(21) {
+		height: 7px;
+		width: 7px;
+		left: 600px;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -248px;
+			top: 218px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 133px;
+			top: 101px;
+		}
+	}
+	&__snowflake:nth-child(22) {
+		height: 5px;
+		width: 5px;
+		left: 800px;
+		animation-delay: -11s;
+
+		&:before {
+			height: 7px;
+			width: 7px;
+			left: -44px;
+			top: 342px;
+		}
+		&:after {
+			height: 6px;
+			width: 6px;
+			left: 126px;
+			top: 123px;
+		}
+	}
+}
+
+/* Анимации */
+@keyframes blades { 
+  100% { transform: rotate(-360deg); }
+}
+@keyframes cloud {
+	0% { transform: translateX(750px); }
+	100% { transform: translateX(-450px); }
+}
+@keyframes snowflake {
+	0% { transform: rotate(45deg)translateX(0) translateY(116px); }
+	20% { transform: rotate(45deg) translateX(-10px) translateY(232px); }
+	40% { transform: rotate(45deg) translateX(-50px)  translateY(348px); }
+	60% { transform: rotate(45deg) translateX(-150px) translateY(464px); }
+	80% { transform: rotate(45deg) translateX(-100px) translateY(580px); }
+	100% { transform: rotate(45deg) translateX(-50px) translateY(700px); }
+}
