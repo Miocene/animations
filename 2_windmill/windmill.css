@@ -1,0 +1,655 @@
+:root {
+	--windmill-dark: #14222D;
+	--windmill-medium-dark: #508BB3;
+	--windmill-medium: #6096C4;
+	--windmill-medium-light: #649ECD;
+	--windmill-light: #B6E2FF;
+}
+
+.windmill {
+	position: relative;
+	width: 800px;
+	height: 500px;
+	margin: auto;
+	overflow: hidden;
+	background: var(--windmill-medium-light);
+}
+	.windmill *, .windmill *::after, .windmill *::before {
+		content: '';
+		position: absolute;
+	}
+	.windmill__sun {
+		top: 145px; left: 245px;
+		height: 30px; width: 30px;
+		border-radius: 100%;
+		background: var(--windmill-light);
+		box-shadow: 0 0 300px 80px var(--windmill-light), 0 0 200px 40px var(--windmill-light), 0 0 50px 10px var(--windmill-light);
+	}
+	.windmill__slice-4 {
+		top: 179px; left: 105px;
+		border-left: 300px solid transparent;
+		border-right: 300px solid transparent;
+		border-bottom: 250px solid var(--windmill-medium-light);
+	}
+		.windmill__slice-4:after {
+			top: 55px; left: -70px;
+			border-left: 180px solid transparent;
+			border-right: 180px solid transparent;
+			border-bottom: 195px solid var(--windmill-medium-light);
+		}
+		.windmill__slice-4:before {
+			top: 80px; left: 60px;
+			border-left: 120px solid transparent;
+			border-right: 120px solid transparent;
+			border-bottom: 170px solid var(--windmill-medium-light);
+		}
+		.windmill__slice-4 div {
+			top: 95px; left: -392px;
+			border-left: 170px solid transparent;
+			border-right: 170px solid transparent;
+			border-bottom: 155px solid var(--windmill-medium-light);
+		}
+			.windmill__slice-4 div:after {
+				top: 20px; left: -115px;
+				border-left: 150px solid transparent;
+				border-right: 150px solid transparent;
+				border-bottom: 135px solid var(--windmill-medium-light);
+			}
+			.windmill__slice-4 div:before {
+				top: -38px; left: -105px;
+				border-left: 220px solid transparent;
+				border-right: 220px solid transparent;
+				border-bottom: 195px solid var(--windmill-medium-light);
+			}
+	.windmill__slice-3 {
+		top: 321px; left: -15px;
+		border-left: 320px solid transparent;
+		border-right: 320px solid transparent;
+		border-bottom: 150px solid var(--windmill-medium);
+	}
+		.windmill__slice-3:after {
+			top: 23px; left: -78px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium);
+		}
+		.windmill__slice-3:before {
+			top: 31px; left: 89px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium);
+		}
+		.windmill__slice-3 .windmill__tree-right {
+			top: 2px; left: 33px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 20px solid var(--windmill-medium);
+			opacity: .5;
+		}
+			.windmill__slice-3 .windmill__tree-right:after {
+				top: 15px; left: 36px;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-bottom: 25px solid var(--windmill-medium);
+			}
+			.windmill__slice-3 .windmill__tree-right:before {
+				top: -2px; left: -19px;
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				border-bottom: 16px solid var(--windmill-medium);
+			}
+		.windmill__slice-3 .windmill__tree-left {
+			top: -4px; left: -30px;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			border-bottom: 20px solid var(--windmill-medium);
+		}
+			.windmill__slice-3 .windmill__tree-left:after {
+				top: 11px; left: -12px;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+				border-bottom: 15px solid var(--windmill-medium);
+			}
+			.windmill__slice-3 .windmill__tree-left:before {
+				top: 19px; left: -46px;
+				border-left: 4px solid transparent;
+				border-right: 4px solid transparent;
+				border-bottom: 20px solid var(--windmill-medium);
+			}
+	.windmill__slice-2 {
+		top: 342px; left: 205px;
+		border-left: 250px solid transparent;
+		border-right: 250px solid transparent;
+		border-bottom: 110px solid var(--windmill-medium-dark);
+	}
+		.windmill__slice-2:after {
+			top: 13px; left: 46px;
+			border-left: 2px solid transparent;
+			border-right: 2px solid transparent;
+			border-bottom: 10px solid var(--windmill-medium-dark);
+		}
+		.windmill__slice-2:before {
+			top: 10px; left: 39px;
+			border-left: 3px solid transparent;
+			border-right: 3px solid transparent;
+			border-bottom: 12px solid var(--windmill-medium-dark);
+		}
+		.windmill__slice-2 .windmill__tree-right {
+			top: 6px; left: -45px;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-bottom: 17px var(--windmill-medium-dark);
+		}
+			.windmill__slice-2 .windmill__tree-right:after {
+				top: -16px; left: 13px;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-bottom: 24px solid var(--windmill-medium-dark);
+			}
+			.windmill__slice-2 .windmill__tree-right:before {
+				top: -11px; left: 26px;
+				border-left: 3px solid transparent;
+				border-right: 3px solid transparent;
+				border-bottom: 15px solid var(--windmill-medium-dark);
+			}
+		.windmill__slice-2 .windmill__tree-middle {
+			top: 26px; left: -88px;
+			border-left: 4px solid transparent;
+			border-right: 4px solid transparent;
+			border-bottom: 15px solid var(--windmill-medium-dark);
+		}
+			.windmill__slice-2 .windmill__tree-middle:after {
+				top: -13px; left: 7px;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-bottom: 24px solid var(--windmill-medium-dark);
+			}
+			.windmill__slice-2 .windmill__tree-middle:before {
+				top: -18px; left: 21px;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-bottom: 28px solid var(--windmill-medium-dark);
+			}
+		.windmill__slice-2 .windmill__tree-left {
+			top: 41px; left: -151px;
+			border-left: 7px solid transparent;
+			border-right: 7px solid transparent;
+			border-bottom: 30px solid var(--windmill-medium-dark);
+		}
+			.windmill__slice-2 .windmill__tree-left:after {
+				top: 2px; left: 8px;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-bottom: 20px solid var(--windmill-medium-dark);
+			}
+			.windmill__slice-2 .windmill__tree-left:before {
+				top: -10px; left: 19px;
+				border-left: 7px solid transparent;
+				border-right: 7px solid transparent;
+				border-bottom: 28px solid var(--windmill-medium-dark);
+			}
+	.windmill__slice-1 {
+		top: 190px; left: 0px;
+		border-right: 400px solid transparent;
+		border-bottom: 315px solid var(--windmill-dark);
+	}
+		.windmill__slice-1:after {
+			top: 150px; left: 390px;
+			border-left: 230px solid transparent;
+			border-right: 520px solid transparent;
+			border-bottom: 175px solid var(--windmill-dark);
+		}
+		.windmill__slice-1:before {
+			top: 240px; left: 180px;
+			width: 400px; height: 80px;
+			border-radius: 100% 100% 0 0;
+			background: var(--windmill-dark);
+		}
+		.windmill__slice-1 .windmill__tree-right {
+			top: 112px; left: 747px;
+			border-left: 26px solid transparent;
+			border-right: 26px solid transparent;
+			border-bottom: 120px solid var(--windmill-dark);
+		}
+			.windmill__slice-1 .windmill__tree-right:after {
+				top: 60px; left: -49px;
+				width: 10px; height: 20px;
+				background: var(--windmill-dark);
+			}
+			.windmill__slice-1 .windmill__tree-right:before {
+				top: 14px; left: -69px;
+				width: 50px; height: 50px;
+				background: var(--windmill-dark);
+				border-radius: 50% 0 50% 50%;
+				transform: rotate(-45deg);
+			}
+		.windmill__slice-1 .windmill__tree-left {
+			top: -42px; left: 40px;
+			border-left: 26px solid transparent;
+			border-right: 26px solid transparent;
+			border-bottom: 120px solid var(--windmill-dark);
+		}
+			.windmill__slice-1 .windmill__tree-left:after {
+				top: 187px; left: 461px;
+				border-left: 20px solid transparent;
+				border-right: 20px solid transparent;
+				border-bottom: 80px solid var(--windmill-dark);
+			}
+			.windmill__slice-1 .windmill__tree-left:before {
+				top: 88px; left: 47px;
+				border-left: 16px solid transparent;
+				border-right: 16px solid transparent;
+				border-bottom: 75px solid var(--windmill-dark);
+			}
+	.windmill__cloud {
+		width: 200px; height: 40px;
+		border-radius: 40px;
+		background: var(--windmill-light);
+		opacity: .3;
+	}
+		.windmill__cloud:before {
+			top: -20px; left: 30px;
+			width: 100px; height: 30px;
+			border-radius: 20px;
+			background: var(--windmill-light);
+		}
+		.windmill__cloud:after {
+			top: -30px; left: 70px;
+			width: 100px; height: 50px;
+			border-radius: 50px;
+			background: var(--windmill-light);
+		}
+		.windmill__cloud:nth-child(1) {
+			top: 140px; left: 150px;
+			animation: cloud 58s linear infinite;
+			animation-delay: -20s;
+		}
+		.windmill__cloud:nth-child(2) {
+			top: 210px; left: 30px;
+			transform: scale(0.4);
+			animation: cloud 60s linear infinite;
+			animation-delay: -12s;
+		}
+		.windmill__cloud:nth-child(3) {
+			top: 270px; left: 650px;
+			transform: scale(0.3);
+			animation: cloud 62s linear infinite;
+			animation-delay: -10s;
+		}
+		.windmill__cloud:nth-child(4) {
+			top: 260px; left: 360px;
+			transform: scale(0.8);
+			animation: cloud 64s linear infinite;
+			animation-delay: -30s;
+		}
+		.windmill__cloud:nth-child(5) {
+			top: 90px; left: 500px;
+			transform: scale(0.5);
+			animation: cloud 56s linear infinite;
+			animation-delay: -25s;
+		}
+		.windmill__cloud:nth-child(6) {
+			top: 140px; left: 710px;
+			transform: scale(0.7);
+			animation: cloud 60s linear infinite;
+			animation-delay: -50s;
+		}
+	.windmill__windmill {
+		bottom: 100px; right: 130px;
+		width: 60px;
+		border-style: solid;
+		border-color: var(--windmill-dark) transparent;
+		border-width: 0 10px 135px;
+	}
+		.windmill__windmill:after {
+			top: 7px; left: 25px;
+			width: 8px; height: 8px;
+			transform: rotate(45deg);
+			background: var(--windmill-light);
+		}
+		.windmill__windmill:before {
+			top: -48px; left: -12px;
+			border-left: 40px solid transparent;
+			border-right: 40px solid transparent;
+			border-bottom: 50px solid var(--windmill-dark);
+		}
+	.windmill__blades {
+		top: 6px; left: 30px;
+		animation: blades 12s linear infinite;
+	}
+	.windmill__blade {
+		height: 80px; width: 24px;
+		border: 2px solid var(--windmill-dark);
+	}
+		.windmill__blade:after {
+			top: 15px; left: -2px;
+			height: 14px; width: 24px;
+			border: 2px solid var(--windmill-dark);
+		}
+		.windmill__blade:before {
+			top: 47px; left: -2px;
+			height: 14px; width: 24px;
+			border: 2px solid var(--windmill-dark);
+		}
+		.windmill__blade:nth-child(1) {
+			top: -84px; left: -13px;
+		}
+		.windmill__blade:nth-child(2) {
+			bottom: -84px; left: -13px;
+		}
+		.windmill__blade:nth-child(3) {
+			top: -43px; left: -56px;
+			transform: rotate(90deg);
+		}
+		.windmill__blade:nth-child(4) {
+			top: -43px; left: 28px;
+			transform: rotate(90deg);
+		}
+	.windmill__snowflake {
+		top: -200px;
+		background: var(--windmill-light);
+		transform: rotate(45deg);
+		animation: snowflake 30s linear infinite;
+		opacity: .5;
+	}
+		.windmill__snowflake:before {
+			background: var(--windmill-light);
+		}
+		.windmill__snowflake:after {
+			background: var(--windmill-light);
+		}
+		.windmill__snowflake:nth-child(1) {
+			left: 100px;
+			height: 5px; width: 5px;
+			animation-delay: 20s;
+		}
+			.windmill__snowflake:nth-child(1):before {
+				left: -15px; top: 137px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(1):after {
+				left: 40px; top: 320px;
+				height: 5px; width: 5px;
+			}
+		.windmill__snowflake:nth-child(2) {
+			left: 200px;
+			height: 5px; width: 5px;
+			animation-delay: 10s;
+		}
+			.windmill__snowflake:nth-child(2):before {
+				left: -157px; top: 226px;
+				height: 5px; width: 5px;
+			}
+			.windmill__snowflake:nth-child(2):after {
+				left: -51px; top: 381px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(3) {
+			left: 300px;
+			height: 5px; width: 5px;
+		}
+			.windmill__snowflake:nth-child(3):before {
+				left: -155px; top: 186px;
+				height: 6px; width: 6px;
+			}
+			.windmill__snowflake:nth-child(3):after {
+				left: -57px; top: 109px;
+				height: 5px; width: 5px;
+			}
+		.windmill__snowflake:nth-child(4) {
+			left: 400px;
+			height: 8px; width: 8px;
+			animation-delay: 14s;
+		}
+			.windmill__snowflake:nth-child(4):before {
+				left: -96px; top: 215px;
+				height: 8px; width: 8px;
+			}
+			.windmill__snowflake:nth-child(4):after {
+				left: -206px; top: 71px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(5) {
+			left: 500px;
+			height: 7px; width: 7px;
+			animation-delay: -24s;
+		}
+			.windmill__snowflake:nth-child(5):before {
+				left: -244px; top: 96px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(5):after {
+				left: 100px; top: 217px;
+				height: 7px; width: 7px;
+			}
+		.windmill__snowflake:nth-child(6) {
+			left: 600px;
+			height: 8px; width: 8px;
+		}
+			.windmill__snowflake:nth-child(6):before {
+				left: 110px; top: 150px;
+				height: 8px; width: 8px;
+			}
+			.windmill__snowflake:nth-child(6):after {
+				left: 30px; top: 276px;
+				height: 8px; width: 8px;
+			}
+		.windmill__snowflake:nth-child(7) {
+			left: 700px;
+			height: 6px; width: 6px;
+			animation-delay: -22s;
+		}
+			.windmill__snowflake:nth-child(7):before {
+				left: 247px; top: 220px;
+				height: 6px; width: 6px;
+			}
+			.windmill__snowflake:nth-child(7):after {
+				left: 143px; top: 306px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(8) {
+			left: 800px;
+			height: 6px; width: 6px;
+			animation-delay: -17s;
+		}
+			.windmill__snowflake:nth-child(8):before {
+				left: 10px; top: 343px;
+				height: 6px; width: 6px;
+			}
+			.windmill__snowflake:nth-child(8):after {
+				left: -105px; top: 239px;
+				height: 8px; width: 8px;
+			}
+		.windmill__snowflake:nth-child(9) {
+			left: 900px;
+			height: 7px; width: 7px;
+		}
+			.windmill__snowflake:nth-child(9):before {
+				left: 133px; top: 211px;
+				height: 8px; width: 8px;
+			}
+			.windmill__snowflake:nth-child(9):after {
+				left: -65px; top: 243px;
+				height: 5px; width: 5px;
+			}
+		.windmill__snowflake:nth-child(10) {
+			left: 1000px;
+			height: 7px; width: 7px;
+			animation-delay: 17s;
+		}
+			.windmill__snowflake:nth-child(10):before {
+				left: -119px; top: 207px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(10):after {
+				left: 166px; top: 4px;
+				height: 7px; width: 7px;
+			}
+		.windmill__snowflake:nth-child(11) {
+			left: 150px;
+			height: 4px; width: 4px;
+			animation-delay: -22s;
+		}
+			.windmill__snowflake:nth-child(11):before {
+				left: -117px; top: 259px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(11):after {
+				left: 230px; top: 81px;
+				height: 9px; width: 9px;
+			}
+		.windmill__snowflake:nth-child(12) {
+			left: 250px;
+			height: 7px; width: 7px;
+		}
+			.windmill__snowflake:nth-child(12):before {
+				left: -17px; top: 226px;
+				height: 6px; width: 6px;
+			}
+			.windmill__snowflake:nth-child(12):after {
+				left: 33px; top: 64px;
+				height: 8px; width: 8px;
+			}
+		.windmill__snowflake:nth-child(13) {
+			left: 350px;
+			height: 5px; width: 5px;
+			animation-delay: 19s;
+		}
+			.windmill__snowflake:nth-child(13):before {
+				left: -138px; top: 192px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(13):after {
+				left: 241px; top: 20px;
+				height: 7px; width: 7px;
+			}
+		.windmill__snowflake:nth-child(14) {
+			left: 450px;
+			height: 4px; width: 4px;
+			animation-delay: 15s;
+		}
+			.windmill__snowflake:nth-child(14):before {
+				left: -173px; top: 222px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(14):after {
+				left: 236px; top: 27px;
+				height: 5px; width: 5px;
+			}
+		.windmill__snowflake:nth-child(15) {
+			left: 550px;
+			height: 7px; width: 7px;
+		}
+			.windmill__snowflake:nth-child(15):before {
+				left: -131px; top: 241px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(15):after {
+				left: 426px; top: 128px;
+				height: 7px; width: 7px;
+			}
+		.windmill__snowflake:nth-child(16) {
+			left: 650px;
+			height: 5px; width: 5px;
+			animation-delay: 22s;
+		}
+			.windmill__snowflake:nth-child(16):before {
+				left: -154px; top: 232px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(16):after {
+				left: 126px; top: 123px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(17) {
+			left: 750px;
+			height: 5px; width: 5px;
+			animation-delay: -8s;
+		}
+			.windmill__snowflake:nth-child(17):before {
+				left: -178px; top: 284px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(17):after {
+				left: 150px; top: 208px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(18) {
+			left: 850px;
+			height: 5px; width: 5px;
+		}
+			.windmill__snowflake:nth-child(18):before {
+				left: -165px; top: 247px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(18):after {
+				left: 110px; top: 216px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(19) {
+			left: 950px;
+			height: 5px; width: 5px;
+			animation-delay: -13s;
+		}
+			.windmill__snowflake:nth-child(19):before {
+				left: -14px; top: 362px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(19):after {
+				left: 226px; top: 243px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(20) {
+			left: 50px;
+			height: 5px; width: 5px;
+			animation-delay: -9s;
+		}
+			.windmill__snowflake:nth-child(20):before {
+				left: -194px; top: 255px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(20):after {
+				left: 246px; top: 233px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(21) {
+			left: 600px;
+			height: 7px; width: 7px;
+		}
+			.windmill__snowflake:nth-child(21):before {
+				left: -248px; top: 218px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(21):after {
+				left: 133px; top: 101px;
+				height: 6px; width: 6px;
+			}
+		.windmill__snowflake:nth-child(22) {
+			left: 800px;
+			height: 5px; width: 5px;
+			animation-delay: -11s;
+		}
+			.windmill__snowflake:nth-child(22):before {
+				left: -44px; top: 342px;
+				height: 7px; width: 7px;
+			}
+			.windmill__snowflake:nth-child(22):after {
+				left: 126px; top: 123px;
+				height: 6px; width: 6px;
+			}
+
+@keyframes blades {
+	100% { transform: rotate(-360deg); }
+}
+@keyframes cloud {
+	0% { transform: translateX(750px); }
+	100% { transform: translateX(-450px); }
+}
+@keyframes snowflake {
+	0% { transform: rotate(45deg) translateX(0) translateY(116px); }
+	20% { transform: rotate(45deg) translateX(-10px) translateY(232px); }
+	40% { transform: rotate(45deg) translateX(-50px) translateY(348px); }
+	60% { transform: rotate(45deg) translateX(-150px) translateY(464px); }
+	80% { transform: rotate(45deg) translateX(-100px) translateY(580px); }
+	100% { transform: rotate(45deg) translateX(-50px) translateY(700px); }
+}

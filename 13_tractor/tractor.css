@@ -1,0 +1,685 @@
+:root {
+	--color-dark: #010101;
+	--color-accent: #4072EE;
+	--color-light: #FCFFFF;
+	--stripes: linear-gradient(90deg, var(--color-dark) 20%, transparent 20%, transparent 40%, var(--color-dark) 40%, var(--color-dark) 60%, transparent 60%, transparent 80%, var(--color-dark) 80%);
+	
+	--frame-size: 30vw;
+	--stripe-width-on-frame: calc(var(--frame-size) * 5 / 24.5);
+	--stripe-gap-on-frame: calc(var(--frame-size) / 24.5);
+	
+	--stripe-gap: calc(var(--stripe-gap-on-frame) * 0.707);
+	--stripe-width: calc(var(--stripe-width-on-frame) * 0.707);
+
+	--animation: 30s linear infinite;
+
+	--stripe-x-1: var(--stripe-gap-on-frame);
+	--stripe-x-2: calc(var(--stripe-gap-on-frame) * 2 + var(--stripe-width-on-frame));
+	--stripe-x-3: calc(var(--stripe-gap-on-frame) * 3 + var(--stripe-width-on-frame) * 2);
+	--stripe-x-4: calc(var(--stripe-gap-on-frame) * 4 + var(--stripe-width-on-frame) * 3);
+
+	--stripe-height-1: calc((var(--stripe-gap-on-frame) + var(--stripe-width-on-frame)) / 0.707);
+	--stripe-height-2: calc((var(--stripe-gap-on-frame) * 2 + var(--stripe-width-on-frame) * 2) / 0.707);
+	--stripe-height-3: calc((var(--stripe-gap-on-frame) * 3 + var(--stripe-width-on-frame) * 3) / 0.707);
+	--stripe-height-4: calc((var(--stripe-gap-on-frame) * 4 + var(--stripe-width-on-frame) * 4) / 0.707);
+}
+
+html, body {
+	height: 100vh; width: 100vw;
+	min-height: 60vw;
+	padding: 0; margin: 0;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.14));
+}
+
+body *, body *:before, body *:after {
+		content: '';
+		position: absolute;
+	}
+
+.frame {
+	position: relative;
+	width: var(--frame-size); height: var(--frame-size);
+	border: 3.2vw solid rgba(255,255,255,0.2);
+	box-shadow: 0 11vw 7.5vw rgba(0, 32, 51, 0.08), 
+                0 1.5vw 4vw rgba(0, 32, 51, 0.05), 
+                0 4vw 2vw -3vw rgba(0, 32, 51, 0.04), 
+                0 2vw 1vw -1vw rgba(0, 32, 51, 0.04), 
+                0 0.6vw 0.5vw rgba(0, 32, 51, 0.03), 
+                0 -0.2vw 0.5vw rgba(0, 32, 51, 0.03);
+}
+
+.frame::before {
+    left: -2vw; right: -2vw;
+    top: -2vw; bottom: -2vw;
+    border-top: 2vw solid rgba(0,0,0,0.09);
+    border-left: 2vw solid rgba(0,0,0,0.05);
+    border-right: 2vw solid rgba(0,0,0,0.04);
+    border-bottom: 2vw solid rgba(255,255,255,0.3);
+    box-shadow: inset 0 0.2vw 0 rgba(0,0,0,0.2), 
+                inset 0.2vw 0 0 rgba(0,0,0,0.08), 
+                inset -0.2vw 0 0 rgba(0,0,0,0.08), 
+                inset 0 -0.2vw 0 rgba(255,255,255,0.2);
+}
+
+.frame::after {
+    top: -3.2vw; bottom: -3.2vw;
+    right: -3.2vw; left: -3.2vw;
+    border-top: 0.1vw solid rgba(255,255,255,0.4);
+    border-left: 0.1vw solid rgba(127,127,127,0.2);
+    border-right: 0.1vw solid rgba(127,127,127,0.2);
+    border-bottom: 0.1vw solid rgba(0,0,0,0.3);
+}
+
+.picture {
+	width: 100%; height: 100%;
+	overflow: hidden;
+	box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.stripe {
+	--height: calc((var(--stripe-gap-on-frame) * var(--index) + var(--stripe-width-on-frame) * var(--index)) / 0.707);
+	width: var(--stripe-width);
+	height: var(--height);
+	
+	transform: rotate(45deg);
+}
+.stripe_1 { --index: 1; }
+.stripe_2 { --index: 2; }
+.stripe_3 { --index: 3; }
+.stripe_4 { --index: 4; }
+.stripe_5 { --index: 4; }
+.stripe_6 { --index: 3; }
+.stripe_7 { --index: 2; }
+.stripe_8 { --index: 1; }
+
+.stripe:nth-child(-n+4) {
+	top: 0;
+	left: calc(var(--stripe-gap-on-frame) * var(--index) + var(--stripe-width-on-frame) * (var(--index) - 1));
+	transform-origin: top left;
+}
+
+.stripe:nth-child(-n+4)::before { top: calc(var(--stripe-width) * -1); }
+.stripe:nth-child(n+5) {
+	bottom: 0;
+	right: calc(var(--stripe-gap-on-frame) * var(--index) + var(--stripe-width-on-frame) * (var(--index) - 1));
+	transform-origin: bottom right;
+}
+.stripe:nth-child(n+5)::before { bottom: calc(var(--stripe-width) * -1); }
+
+.stripe::before {
+	width: 100%;
+	height: 100%;
+	background: var(--stripes);
+}
+.stripe_1::before {
+	transform-origin: top center;
+	animation: stripe1Anim var(--animation);
+}
+.stripe_2::before {
+	transform-origin: bottom center;
+	animation: stripe2Anim var(--animation);
+}
+.stripe_3::before {
+	transform-origin: top center;
+	animation: stripe3Anim var(--animation);
+}
+.stripe_4::before {
+	transform-origin: bottom center;
+	animation: stripe4Anim var(--animation);
+}
+.stripe_5::before {
+	transform-origin: top center;
+	animation: stripe5Anim var(--animation);
+}
+.stripe_6::before {
+	transform-origin: bottom center;
+	animation: stripe6Anim var(--animation);
+}
+.stripe_7::before {
+	transform-origin: top center;
+	animation: stripe7Anim var(--animation);
+}
+.stripe_8::before {
+	transform-origin: bottom center;
+	animation: stripe8Anim var(--animation);
+}
+
+@keyframes stripe1Anim {
+	0% { transform: scaleY(1.37) translateY(calc(var(--stripe-height-1) * -1 + var(--stripe-width) * -2.78)); }
+	9.4%, 100% { transform: translateY(0) scaleY(1.37); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe2Anim {
+	0%, 9.4% { transform: scaleY(1.12) translateY(calc(var(--stripe-height-2) + var(--stripe-width) * 3.9)); }
+	21.2%, 100% { transform: scaleY(1.12); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe3Anim {
+	0%, 21.2% { transform: scaleY(1.13) translateY(calc(var(--stripe-height-3) * -1 + var(--stripe-width) * -3.8)); }
+	36.9%, 100% { transform: translateY(0) scaleY(1.13); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe4Anim {
+	0%, 36.9% { transform: scaleY(1.03) translateY(calc(var(--stripe-height-4) + var(--stripe-width) * 2.7)); }
+	53.7%, 100% { transform: scaleY(1.03); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe5Anim {
+	0%, 53.7% { transform: translateY(calc(var(--stripe-height-4) * -1 + var(--stripe-width) * -2.81)); }
+	70%, 100% { transform: translateY(0); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe6Anim {
+	0%, 70% { transform: translateY(calc(var(--stripe-height-3) + var(--stripe-width) * 2.81)); }
+	83.2%, 100% { transform: translateY(0); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe7Anim {
+	0%, 83.2% { transform: translateY(calc(var(--stripe-height-2) * -1 + var(--stripe-width) * -2.81)); }
+	93.1%, 100% { transform: translateY(0); }
+
+	99% { opacity: 1; }
+	100% { opacity: 0; }
+}
+@keyframes stripe8Anim {
+		0%, 93.1% { transform: translateY(calc(var(--stripe-height-1) + var(--stripe-width) * 2.81)); }
+		100% { transform: translateY(0); }
+
+		99% { opacity: 1; }
+		100% { opacity: 0; }
+	}
+
+
+.tractor {
+	width: var(--stripe-width);
+	height: calc(var(--stripe-width) * 0.54);
+	background: var(--color-dark);
+}
+
+
+.tractor::before {
+    left: calc(var(--stripe-width) * -0.05);
+    top: calc(var(--stripe-width) * 0.94);
+    width: calc(var(--stripe-width) * 1.28);
+    height: calc(var(--stripe-width) * 1.75);
+    background: var(--color-dark);
+    border-radius: calc(var(--stripe-width) * 0.1);
+}
+
+
+.tractor::after {
+    right: calc(var(--stripe-width) * -0.18);
+    top: calc(var(--stripe-width) * 0.98);
+    width: calc(var(--stripe-width) * 0.08);
+    height: calc(var(--stripe-width) * 0.55);
+    background: var(--color-accent);
+    border-radius: 100%;
+    box-shadow: 0 calc(var(--stripe-width) * 1.1) var(--color-accent);
+}
+
+
+.tractor > div:nth-child(1) {
+    left: calc(var(--stripe-width) * 0.56);
+    top: calc(var(--stripe-width) * 2);
+    width: calc(var(--stripe-width) * 0.4);
+    height: calc(var(--stripe-width) * 1.1);
+    background: linear-gradient(130deg, var(--color-dark) 77%, transparent 10%);
+}
+
+
+.tractor > div:nth-child(1)::before {
+    left: calc(var(--stripe-width) * -0.35);
+    top: calc(var(--stripe-width) * -1.13);
+    width: calc(var(--stripe-width) * 0.6);
+    height: calc(var(--stripe-width) * 1.36);
+    background: var(--color-accent);
+    border-radius: calc(var(--stripe-width) * 0.1);
+}
+
+
+.tractor > div:nth-child(1)::after {
+    left: calc(var(--stripe-width) * -0.34);
+    top: calc(var(--stripe-width) * -1.02);
+    width: calc(var(--stripe-width) * 0.55);
+    height: calc(var(--stripe-width) * 1.3);
+    background: var(--color-dark);
+    border-radius: calc(var(--stripe-width) * 0.1);
+}
+
+
+.tractor > div:nth-child(2) {
+    left: calc(var(--stripe-width) * 0.16);
+    top: calc(var(--stripe-width) * 2.04);
+    width: calc(var(--stripe-width) * 0.52);
+    height: calc(var(--stripe-width) * 1.05);
+    background: var(--color-accent);
+    border-radius: calc(var(--stripe-width) * 0.05);
+}
+
+
+.tractor > div:nth-child(2)::before {
+    left: calc(var(--stripe-width) * 0.03);
+    top: calc(var(--stripe-width) * -0.7);
+    width: calc(var(--stripe-width) * 0.53);
+    height: calc(var(--stripe-width) * 0.51);
+    background: var(--color-accent);
+    border-radius: calc(var(--stripe-width) * 0.03);
+}
+
+
+.tractor > div:nth-child(2)::after {
+    left: calc(var(--stripe-width) * 0.30);
+    top: calc(var(--stripe-width) * -0.95);
+    width: calc(var(--stripe-width) * 0.2);
+    height: calc(var(--stripe-width) * 0.77);
+    border-radius: 100%;
+    background: var(--color-dark);
+    transform-origin: top center;
+    transform: rotate(25deg);
+}
+
+
+.tractor > div:nth-child(3) {
+    left: calc(var(--stripe-width) * 0.32);
+    top: calc(var(--stripe-width) * 1.78);
+    width: calc(var(--stripe-width) * 0.25);
+    height: calc(var(--stripe-width) * 0.19);
+    box-sizing: border-box;
+    border: calc(var(--stripe-width) * 0.02) solid var(--color-dark);
+    border-radius: 50%;
+    box-shadow: inset 0vw -0.15vw var(--color-accent);
+}
+
+
+.tractor > div:nth-child(3)::before {
+    left: calc(var(--stripe-width) * 0.0);
+    top: calc(var(--stripe-width) * -0.75);
+    width: calc(var(--stripe-width) * 0.2);
+    height: calc(var(--stripe-width) * 0.77);
+    border-radius: 100%;
+    background: var(--color-dark);
+    transform-origin: top center;
+    transform: rotate(-15deg);
+}
+
+
+.tractor > div:nth-child(3)::after {
+    left: calc(var(--stripe-width) * -0.16);
+    top: calc(var(--stripe-width) * -0.78);
+    width: calc(var(--stripe-width) * 0.54);
+    height: calc(var(--stripe-width) * 0.43);
+    border-radius: 100%;
+    background: var(--color-dark);
+    box-shadow: inset calc(var(--stripe-width) * 0.03) calc(var(--stripe-width) * -0.14) 0 calc(var(--stripe-width) * 0) var(--color-accent);
+    z-index: 1;
+}
+
+
+.tractor > div:nth-child(4) {
+    left: calc(var(--stripe-width) * 0.45);
+    top: calc(var(--stripe-width) * 0.5);
+    width: calc(var(--stripe-width) * 0.1);
+    height: calc(var(--stripe-width) * 0.36);
+    background-color: var(--color-dark);
+}
+
+
+.tractor > div:nth-child(4)::before {
+    left: calc(var(--stripe-width) * 0.16);
+    top: calc(var(--stripe-width) * 0.6);
+    width: calc(var(--stripe-width) * 0.11);
+    height: calc(var(--stripe-width) * 0.7);
+    border-radius: 0 100% 100% 0 / 0 0% 100% 0;
+    box-shadow: inset -0.0vw 0.5vw var(--color-dark), inset -1.7vw 0.9vw 0 -1vw var(--color-accent);
+}
+
+
+.tractor > div:nth-child(4)::after {
+    left: calc(var(--stripe-width) * -0.27);
+    top: calc(var(--stripe-width) * 0.6);
+    width: calc(var(--stripe-width) * 0.13);
+    height: calc(var(--stripe-width) * 0.65);
+    border-radius: 0 70% 100% 0 / 0 30% 70% 0;
+    box-shadow: inset -1.7vw 0.9vw 0 -1vw var(--color-accent);
+    transform: scaleX(-1);
+}
+
+
+.tractor > div:nth-child(5) {
+    left: calc(var(--stripe-width) * 0.23);
+    top: calc(var(--stripe-width) * 1.01);
+    width: calc(var(--stripe-width) * 0.38);
+    height: calc(var(--stripe-width) * 0.39);
+    border-radius: 50%;
+    background: linear-gradient(0deg, var(--color-light) 25%, var(--color-accent) 25%, var(--color-accent) 77%, var(--color-light) 0%);
+    box-shadow: inset 0.8vw 0vw var(--color-light);
+    z-index: 1;
+}
+
+
+.tractor > div:nth-child(5)::before {
+    left: calc(var(--stripe-width) * 0.03);
+    top: calc(var(--stripe-width) * 0.68);
+    width: calc(var(--stripe-width) * 0.06);
+    height: calc(var(--stripe-width) * 0.1);
+    background: var(--color-light);
+    border-radius: 100vw;
+    transform-origin: top left;
+    transform: rotate(-14deg);
+}
+
+
+.tractor > div:nth-child(5)::after {
+    left: calc(var(--stripe-width) * 0.38);
+    top: calc(var(--stripe-width) * 0.68);
+    width: calc(var(--stripe-width) * 0.06);
+    height: calc(var(--stripe-width) * 0.1);
+    background: var(--color-light);
+    border-radius: 100vw;
+    transform-origin: top right;
+    transform: rotate(14deg);
+}
+
+
+.tractor > div:nth-child(6) {
+    left: calc(var(--stripe-width) * 0.3);
+    top: calc(var(--stripe-width) * 1.1);
+    width: calc(var(--stripe-width) * 0.19);
+    height: calc(var(--stripe-width) * 0.19);
+    border-radius: 50%;
+    box-shadow: 0.13vw 0vw 0 0.03vw var(--color-dark);
+    background: var(--color-light);
+    z-index: 1;
+}
+
+
+.tractor > div:nth-child(6)::before {
+    left: calc(var(--stripe-width) * -0.03);
+    top: calc(var(--stripe-width) * 0.61);
+    width: calc(var(--stripe-width) * 0.07);
+    height: calc(var(--stripe-width) * 0.15);
+    background: conic-gradient(from 1.5rad at 53% 55%, transparent 81deg, var(--color-light) 0deg);
+    border-radius: 0.15vw;
+    transform-origin: top left;
+    transform: rotate(-5deg) skewY(51deg);
+}
+
+
+.tractor > div:nth-child(6)::after {
+    left: calc(var(--stripe-width) * 0.28);
+    top: calc(var(--stripe-width) * 0.62);
+    width: calc(var(--stripe-width) * 0.07);
+    height: calc(var(--stripe-width) * 0.14);
+    background: conic-gradient(from -2.8rad at 45% 55%, transparent 81deg, var(--color-light) 0deg);
+    border-radius: 0.15vw;
+    transform-origin: top right;
+    transform: rotate(7deg) skewY(-49deg);
+}
+
+
+.tractor__shadow {
+    left: calc(var(--stripe-width) * 1.35);
+    top: calc(var(--stripe-width) * 0.82);
+    width: calc(var(--stripe-width) * 0.36);
+    height: calc(var(--stripe-width) * 2.1);
+    border-radius: calc(var(--stripe-width) * 0.03) 0 0 calc(var(--stripe-width) * 0.14);
+    background: var(--color-dark);
+    opacity: 0.15;
+}
+
+
+.tractor__shadow::before {
+    left: calc(var(--stripe-width) * 0.36);
+    top: calc(var(--stripe-width) * 0.8);
+    width: calc(var(--stripe-width) * 0.5);
+    height: calc(var(--stripe-width) * 1.3);
+    border-radius: 0 calc(var(--stripe-width) * 0.3) calc(var(--stripe-width) * 0.05) 0;
+    background: var(--color-dark);
+}
+
+
+.tractor__shadow > div:nth-child(1) {
+    left: calc(var(--stripe-width) * 0.3);
+    top: calc(var(--stripe-width) * 0.1);
+    width: calc(var(--stripe-width) * 0.53);
+    height: calc(var(--stripe-width) * 0.1);
+    border-radius: 0 99em 99em 0;
+    background: var(--color-dark);
+}
+
+
+.tractor__shadow > div:nth-child(1)::before {
+    width: calc(var(--stripe-width) * 0.3);
+    height: calc(var(--stripe-width) * 0.8);
+    background: var(--color-dark);
+}
+
+
+.tractor__shadow > div:nth-child(1)::after {
+    left: calc(var(--stripe-width) * 0.15);
+    top: calc(var(--stripe-width) * 0.1);
+    width: calc(var(--stripe-width) * 0.88);
+    height: calc(var(--stripe-width) * 0.27);
+    background: var(--color-dark);
+    border-radius: 0 50% 0 0 / 0 100% 0 0;
+}
+
+
+.tractor__shadow > div:nth-child(2) {
+    left: calc(var(--stripe-width) * -0.4);
+    top: calc(var(--stripe-width) * -0.82);
+    width: calc(var(--stripe-width) * 0.6);
+    height: calc(var(--stripe-width) * 0.54);
+    background: linear-gradient(45deg, var(--color-dark) 54%, transparent 0%);
+}
+
+
+.tractor__shadow > div:nth-child(2)::before {
+    left: calc(var(--stripe-width) * 0.28);
+    top: calc(var(--stripe-width) * 0.37);
+    width: calc(var(--stripe-width) * 0.05);
+    height: calc(var(--stripe-width) * 0.6);
+    background: var(--color-dark);
+    transform: rotate(-53deg);
+}
+
+
+.tractor__shadow > div:nth-child(2)::after {
+    left: calc(var(--stripe-width) * 0.2);
+    top: calc(var(--stripe-width) * 0.95);
+    width: calc(var(--stripe-width) * 0.3);
+    height: calc(var(--stripe-width) * 0.58);
+    background: var(--color-dark);
+    border-radius: 99em;
+    box-shadow: 0 calc(var(--stripe-width) * 1.16) var(--color-dark);
+}
+
+
+.tractor__shadow > div:nth-child(3) {
+    left: calc(var(--stripe-width) * 0.57);
+    top: calc(var(--stripe-width) * 0.4);
+    width: calc(var(--stripe-width) * 0.24);
+    height: calc(var(--stripe-width) * 0.33);
+    border-radius: 0 0 10% 90%;
+    background: var(--color-dark);
+    transform-origin: top right;
+    transform: rotate(-6deg);
+}
+
+
+.tractor__shadow > div:nth-child(3)::before {
+    right: calc(var(--stripe-width) * 0.02);
+    top: calc(var(--stripe-width) * 0.18);
+    width: calc(var(--stripe-width) * 0.45);
+    height: calc(var(--stripe-width) * 0.15);
+    transform-origin: top right;
+    transform: rotate(-16deg);
+    background: var(--color-dark);
+    border-radius: 100% 0 20% 0 / 100% 0 60% 0;
+}
+
+
+.tractor__shadow > div:nth-child(3)::after {
+    left: calc(var(--stripe-width) * 0.27);
+    top: calc(var(--stripe-width) * -0.06);
+    width: calc(var(--stripe-width) * 0.34);
+    height: calc(var(--stripe-width) * 0.14);
+    transform-origin: top right;
+    border-radius: 50% 100% 0 0;
+    transform: rotate(-29deg);
+    background: var(--color-dark);
+}
+
+
+.tractor__shadow > div:nth-child(4) {
+    left: calc(var(--stripe-width) * 1.23);
+    top: calc(var(--stripe-width) * 0.4);
+    width: calc(var(--stripe-width) * 0.33);
+    height: calc(var(--stripe-width) * 0.19);
+    background: var(--color-dark);
+    border-radius: 0 40% 30% 50% / 0 40% 30% 33%;
+}
+
+
+.tractor__shadow > div:nth-child(4)::before {
+    left: calc(var(--stripe-width) * 0.17);
+    top: calc(var(--stripe-width) * -0.05);
+    width: calc(var(--stripe-width) * 0.04);
+    height: calc(var(--stripe-width) * 0.3);
+    background: var(--color-dark);
+    border-radius: 100%;
+    transform: rotate(5deg);
+}
+
+
+.tractor__shadow > div:nth-child(4)::after {
+    left: calc(var(--stripe-width) * -0.43);
+    top: calc(var(--stripe-width) * 0.57);
+    width: calc(var(--stripe-width) * 0.1);
+    height: calc(var(--stripe-width) * 1);
+    background: var(--color-dark);
+    border-radius: 0 0.3vw 0 0;
+    transform-origin: top left;
+    transform: rotate(2deg);
+}
+
+
+.tractor__shadow > div:nth-child(5) {
+    left: calc(var(--stripe-width) * 0.92);
+    top: calc(var(--stripe-width) * 0.5);
+    width: calc(var(--stripe-width) * 0.12);
+    height: calc(var(--stripe-width) * 0.35);
+    border-radius: 20% 0 0 0;
+    background: linear-gradient(105deg, var(--color-dark) 68%, transparent 0%);
+    transform-origin: top left;
+    transform: rotate(24deg);
+}
+
+
+.tractor__shadow > div:nth-child(5)::before {
+    left: 0;
+    top: calc(var(--stripe-width) * 0.28);
+    width: calc(var(--stripe-width) * 0.1);
+    height: calc(var(--stripe-width) * 0.1);
+    background: var(--color-dark);
+    border-radius: 0.1vw;
+    transform-origin: top left;
+    transform: skewY(45deg);
+}
+	
+.tractor_forward {
+	transform-origin: left top;
+	animation: tractorForwardAnim var(--animation);
+}
+.tractor-forward-wrap {
+	animation: tractorForwardWrapAnim var(--animation);
+}
+
+@keyframes tractorForwardWrapAnim {
+	0%, 21.19% { transform: translateX(var(--stripe-x-1)) rotate(45deg); }
+
+	21.2%, 53.69% { transform: translateX(var(--stripe-x-3)) rotate(45deg); }
+
+	53.7%, 83.19% { transform: translate(calc(var(--stripe-x-1) - var(--stripe-gap-on-frame) / 2), var(--frame-size)) rotate(45deg); }
+
+	83.2%, 100% { transform: translate(calc(var(--stripe-x-3) - var(--stripe-gap-on-frame) / 2), var(--frame-size)) rotate(45deg); }
+}
+@keyframes tractorForwardAnim {
+	0% { transform: translateY(calc(-4.7 * var(--stripe-width))); }
+	9.4%, 21.19% { transform: translateY(var(--stripe-height-1)); }
+
+	21.2% { transform: translateY(calc(-5.2 * var(--stripe-width))); }
+	36.9%, 53.69% { transform: translateY(var(--stripe-height-3)); }
+
+	53.7% { transform: translateY(calc(-1 * var(--stripe-height-4) - var(--stripe-width) * 2.7)); }
+	70%, 83.19% { transform: translateY(calc(var(--stripe-width) * 0.1)); }
+
+	83.2% { transform: translateY(calc(-1 * var(--stripe-height-2) - var(--stripe-width) * 2.7)); }
+	93.1%, 100% { transform: translateY(calc(var(--stripe-width) * 0.1)); }
+}
+
+.tractor_backward {
+	transform-origin: left top;
+	animation: tractorBackwardAnim var(--animation);
+}
+.tractor-backward-wrap {
+	animation: tractorBackwardWrapAnim var(--animation);
+}
+
+@keyframes tractorBackwardWrapAnim {
+	0%, 9.4%, 36.89% { transform: translateX(calc(var(--stripe-x-2))) rotate(45deg) scaleY(-1); }
+
+	36.9%, 69.99% { transform: translateX(calc(var(--stripe-x-4))) rotate(45deg) scaleY(-1); }
+
+	70%, 93.09% { transform: translate(calc(var(--stripe-x-2) - var(--stripe-gap-on-frame) / 2), var(--frame-size)) rotate(45deg); }
+
+	93.1%, 100% { transform: translate(calc(var(--stripe-x-4) - var(--stripe-gap-on-frame) / 2), var(--frame-size)) rotate(45deg); }
+}
+@keyframes tractorBackwardAnim {
+	0%, 9.4% { transform: translateY(calc(var(--stripe-height-2) * -1 - var(--stripe-width) * 3.2)); }
+	21.2%, 36.89% { transform: translateY(calc(1.7 * var(--stripe-width))); }
+
+	36.9% { transform: translateY(calc(var(--stripe-height-4) * -1 - var(--stripe-width) * 1.7)); }
+	53.7%, 69.99% { transform: translateY(calc(1.4 * var(--stripe-width))); }
+
+	70% { transform: translateY(calc(var(--stripe-width) * 2.7)) scaleY(-1); }
+	83.2%, 93.09% { transform: translateY(calc(-1 * var(--stripe-height-3) - var(--stripe-width) * 0.1)) scaleY(-1); }
+
+	93.1% { transform: translateY(calc(var(--stripe-width) * 2.69)) scaleY(-1); }
+	100% { transform: translateY(calc(-1 * var(--stripe-height-1) - var(--stripe-width) * 0.12)) scaleY(-1); }
+}
+
+.nameplate {
+	top: 115%; left: 50%;
+	width: 12vw; padding: 1vw;
+	background: #dadada;
+	box-shadow: 0 0.3vw 0.4vw rgba(0, 0, 0, 0.05), 0 0.33vw 0.2vw -0.1vw rgba(0, 0, 0, 0.02), 0 0.1vw rgba(0, 0, 0, 0.07);
+	font-size: 1.2vw;
+	font-family: Georgia, serif;
+	text-align: center;
+	text-decoration: none;
+	color: rgb(47, 47, 47);
+	transform: translateX(-50%);
+	transition: box-shadow 0.25s ease;
+}
+    .nameplate:hover {
+        box-shadow: 0 0.4vw 0.6vw rgba(0, 0, 0, 0.05), 0 0.6vw 0.5vw -0.3vw rgba(0, 0, 0, 0.02), 0 0.2vw rgba(0, 0, 0, 0.07);
+    }
