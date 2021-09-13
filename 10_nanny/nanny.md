@@ -1,12 +1,7 @@
 # Moustached Nanny
 
-August 2, 2018
+August 2, 2018 | [watch on CodePen](https://codepen.io/miocene/pen/mjLPVp)
 
-> based on Beresnev's https://dribbble.com/shots/3005865-Moustached-nanny
+> Based on Beresnev [Dribbble shot](https://dribbble.com/shots/3005865-Moustached-nanny)
 
-<p class="codepen" data-height="300" data-default-tab="result" data-slug-hash="mjLPVp" data-user="miocene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/miocene/pen/mjLPVp">
-  Pure CSS &quot;Moustached Nanny&quot;</a> by Julia Miocene (<a href="https://codepen.io/miocene">@miocene</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+![Pure CSS Moustached Nanny Animation GIF](10.gif "Pure CSS Moustached Nanny Animation GIF")

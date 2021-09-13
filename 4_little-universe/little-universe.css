@@ -1,3 +1,4 @@
+html { background: #181743; }
 .universe {
 	position: relative;
 	display: flex;
@@ -9,7 +10,6 @@
 	min-width: 800px;
 	margin: auto;
 	overflow: hidden;
-	background: #181743;
 }
 .universe__part *, .universe__part *::before, .universe__part *::after {
 	position: absolute;
