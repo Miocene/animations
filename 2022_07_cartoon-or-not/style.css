@@ -1,0 +1,1475 @@
+body {
+	width: 100%; height: 100vh;
+	margin: 0;
+}
+.scene {
+	position: relative;
+	max-width: 100vw; max-height: 100vh;
+	overflow: hidden;
+	aspect-ratio: 4 / 3;
+	margin: auto;
+	z-index: 1;
+	background: radial-gradient(ellipse, rgb(222 133 82 / 30%), transparent 48%) -7vh 72vh / 110% 25% no-repeat, radial-gradient(ellipse, rgb(222 133 82 / 30%), transparent 48%) 83vh 52vh / 110% 25% no-repeat, radial-gradient(ellipse, rgb(222 133 82 / 30%), transparent 48%) -320% 30% / 110% 19% no-repeat, radial-gradient(ellipse at 30% 10%, #884f45, #ca845c 20%, transparent 70%) 0 -20% / 90% 49% no-repeat, radial-gradient(ellipse at 30% 40%, rgb(220 164 141 / 60%) 20%, transparent 48%) -20% -10% / 50% 69% no-repeat, linear-gradient(30deg, transparent, rgb(155 93 83 / 70%) 70%, rgb(210 152 133 / 70%)), linear-gradient(10deg, #51131f, #8b2b3c 40%, #72222c);
+	--noise-3: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	--animation: 4.2s linear infinite;
+}
+.scene *, .scene::before, .scene::after, .scene *::before, .scene *::after {
+	position: absolute;
+	content: '';
+	transform-origin: top left;
+}
+.scene::before {
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: radial-gradient(circle, rgb(255 147 7 / 100%), rgba(255 147 7 / 0) 60%) center 32% / 0% 0% no-repeat;
+	mix-blend-mode: overlay;
+	z-index: 1;
+	animation: sceneShine var(--animation);
+}
+@keyframes sceneShine {
+	100%  { background-position: center 72%;
+					background-size: 150% 150%;
+					opacity: 0.4; }
+	76.0% { background-position: center 72%;
+					background-size: 150% 150%;
+					opacity: 0.4; }
+	48.8% { background-position: center 32%;
+					background-size: 20% 20%;
+					opacity: 0; }
+	00.0% { background-position: center 32%;
+            background-size: 20% 20%;
+            opacity: 0; }
+}
+.scene::after {
+	top: 0; left: 0;
+	width: 100%; height: 100%;
+	background: var(--noise-3) 0 / 20vh repeat;
+	mix-blend-mode: overlay;
+	z-index: 1;
+}
+
+.person {
+	bottom: 0; left: 50%;
+}
+	.person::before {
+		/* left shoulderpad */
+		top: -43.9vh; left: 9vh;
+		width: 17.3vh; height: 20vh;
+		background: linear-gradient(45deg, #3d517e, #33446b);
+		border-radius: 30% 70% 20% 20% / 17% 80% 20% 20%;
+		z-index: -1;
+
+		animation: leftShoulderpad var(--animation);
+	}
+	@keyframes leftShoulderpad {
+		/* 86 - 74 */
+		100%  { transform: translate(0vh, 0vh) rotate(-6deg); }
+		86.0% { transform: translate(0vh, 0vh) rotate(-6deg); }
+		/* 68 */
+		79.1% { transform: translate(0vh, 0vh) rotate(-4deg); }
+		/* 60 - 49 */
+		69.8% { transform: translate(-3vh, -0.8vh) rotate(-4deg); }
+		57.0% { transform: translate(-3vh, -0.8vh) rotate(-4deg); }
+		/* 42 - 0 */
+		48.8% { transform: translate(-3.1vh, 1.2vh) rotate(-4deg); }
+		00.0% { transform: translate(-3.1vh, 1.2vh) rotate(-4deg); }
+	}
+
+.person__lefttarm {
+	top: -21vh; left: -33vh;
+	width: 16vh; height: 26vh;
+	background: #e9d3b8;
+	border-radius: 10vh 10vh 0 0;
+	transform-origin: top center;
+
+	animation: leftArm var(--animation);
+}
+@keyframes leftArm {
+	/* 86 - 74 */
+	100%  { transform: translate(0vh, 0vh) rotate(4deg); }
+	86.0% { transform: translate(0vh, 0vh) rotate(4deg); }
+	/* 68 */
+	79.1% { transform: translate(0.9vh, -0.3vh) rotate(4deg); }
+	/* 60 */
+	69.8% { transform: translate(5.3vh, 0.3vh) rotate(6deg); }
+	/* 58 */
+	67.4% { transform: translate(6.1vh, 1.8vh) rotate(6deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(6.6vh, 2.2vh) rotate(7deg); }
+	57.0% { transform: translate(6.6vh, 2.2vh) rotate(7deg); }
+	/* 42 */
+	48.8% { transform: translate(7.4vh, 2.7vh) rotate(8deg); }
+	/* 34 */
+	39.5% { transform: translate(10.5vh, 2.7vh) rotate(12deg); }
+	/* 32 */
+	37.2% { transform: translate(12.6vh, 2.7vh) rotate(14deg); }
+	/* 29 - 10 */
+	33.7% { transform: translate(12.9vh, 2.7vh) rotate(14deg); }
+	11.6% { transform: translate(12.9vh, 2.7vh) rotate(14deg); }
+	/* 3 */
+	03.5% { transform: translate(11.6vh, 2.6vh) rotate(7deg); }
+	/* 0 */
+	00.0% { transform: translate(11.8vh, 2.6vh) rotate(7deg); }
+}
+	.person__lefttarm::before {
+		top: -3.4vh; left: -1vh;
+		width: 18.6vh; height: 26vh;
+		background: radial-gradient(ellipse, #f6413f 32%, transparent calc(32% + 1px)) -36% 71% / 70% 97% no-repeat, linear-gradient(#33446b, #3c5180);
+		border-radius: 60% 40% 40% 60% / 50% 50% 50% 50%;
+
+		animation: leftArmBefore var(--animation);
+	}
+	@keyframes leftArmBefore {
+		/* 86 - 68 */
+		100%  { background-position: -36% 71%, 0 0;
+						background-size: 70% 97%, 100% 100%;
+						transform: translate(0vh, 0vh) scale(1, 1); }
+		79.1% { background-position: -36% 71%, 0 0;
+						background-size: 70% 97%, 100% 100%;
+						transform: translate(0vh, 0vh) scale(1, 1); }
+		/* 60 */
+		69.8% { background-position: -29% 113%, 0 0;
+						background-size: 82% 97%, 100% 100%;
+						transform: translate(0vh, 0vh) scale(1.05, 0.98); }
+		/* 58 */
+		67.4% { background-position: -61% 113%, 0 0;
+						background-size: 89% 97%, 100% 100%;
+						transform: translate(0vh, 0vh) scale(1.06, 0.98); }
+		/* 57 - 42 */
+		66.3% { background-position: -61% 244%, 0 0;
+						background-size: 90% 97%, 100% 100%;
+						transform: translate(0vh, 0.1vh) scale(1.07, 0.97); }
+		48.8% { background-position: -61% 244%, 0 0;
+						background-size: 90% 97%, 100% 100%;
+						transform: translate(0vh, 0.1vh) scale(1.07, 0.97); }
+		/* 34 */
+		39.5% { background-position: -111% 194%, 0 0;
+						background-size: 97% 97%, 100% 100%;
+						transform: translate(0vh, 0.1vh) scale(1.07, 0.97); }
+		/* 32 - 0 */
+		37.2% { background-position: -0.7vh 1.1vh, 0 0;
+						background-size: 101% 97%, 100% 100%;
+						transform: translate(0vh, 0.1vh) scale(1.07, 0.97); }
+		00.0% { background-position: -0.7vh 1.1vh, 0 0;
+						background-size: 101% 97%, 100% 100%;
+						transform: translate(0vh, 0.1vh) scale(1.07, 0.97); }
+	}
+
+.person__rightarm {
+	top: -43vh; left: 8vh;
+	width: 12.8vh; height: 48.8vh;
+	background: linear-gradient(-3deg, #dab486 calc(18vh - 1px), #f9413d 18vh, #f9413d 21vh, #e9d3b8 calc(21vh + 1px), #dcb98e);
+	border-radius: 2vh 9vh 6.5vh 6.5vh;
+	transform-origin: top center;
+	z-index: -1;
+
+	animation: rightArm var(--animation);
+}
+@keyframes rightArm {
+	/* 86 - 74 */
+	100%  { transform: translate(0vh, 0vh) rotate(-19deg); }
+	86.0% { transform: translate(0vh, 0vh) rotate(-19deg); }
+	/* 68 */
+	79.1% { transform: translate(-0.5vh, 0vh) rotate(-20deg); }
+	/* 60 */
+	69.8% { transform: translate(-4.3vh, -0.7vh) rotate(-25deg); }
+	/* 58 */
+	67.4% { transform: translate(-5.3vh, 0.2vh) rotate(-27deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(-5.8vh, 0.4vh) rotate(-28deg); }
+	57.0% { transform: translate(-5.8vh, 0.4vh) rotate(-28deg); }
+	/* 42 */
+	48.8% { transform: translate(-6.3vh, 1.6vh) rotate(-32deg); }
+	/* 34 */
+	39.5% { transform: translate(-8.3vh, 4.3vh) rotate(-55deg); }
+	/* 32 */
+	37.2% { transform: translate(-9.2vh, 4.9vh) rotate(-67deg); }
+	/* 29 - 25 */
+	33.7% { transform: translate(-9.2vh, 4.9vh) rotate(-68deg); }
+	29.1% { transform: translate(-9.2vh, 4.9vh) rotate(-68deg); }
+	/* 23 */
+	26.7% { transform: translate(-9.2vh, 5.1vh) rotate(-68deg); }
+	/* 10 - 3 */
+	11.6% { transform: translate(-9.2vh, 5.2vh) rotate(-66deg); }
+	03.5% { transform: translate(-9.2vh, 5.2vh) rotate(-66deg); }
+	/* 0 */
+	00.0% { transform: translate(-9.8vh, 4vh) rotate(-61deg); }
+}
+	.person__rightarm::before {
+		top: 36vh; left: 0vh;
+		width: 12.8vh; height: 55vh;
+		background: linear-gradient(-139deg, transparent calc(30% - 1px), #3c5180 30%) 0vh 19vh / 5vh 21vh no-repeat, linear-gradient(-174deg, transparent calc(38vh - 1px), #3c5180 38vh), linear-gradient(-173deg, transparent calc(12.3vh - 1px), #3c5180 12.3vh, #3c5180 12.6vh, transparent calc(12.6vh + 1px)), linear-gradient(-173deg, transparent calc(11.3vh - 1px), #3c5180 11.3vh, #3c5180 11.6vh, transparent calc(11.6vh + 1px)), linear-gradient(-173deg, transparent calc(10.3vh - 1px), #3c5180 10.3vh, #3c5180 10.6vh, transparent calc(10.6vh + 1px)), linear-gradient(#dab486 20%, #e9d3b8);
+		border-radius: 7vh;
+		transform-origin: 6.4vh 6.4vh;
+
+		animation: rightArmBefore var(--animation);
+	}
+	@keyframes rightArmBefore {
+		/* 86 - 74 */
+		100%  { transform: rotate(-40deg); }
+		86.0% { transform: rotate(-40deg); }
+		/* 68 */
+		79.1% { transform: rotate(-41deg); }
+		/* 60 */
+		69.8% { transform: rotate(-46deg); }
+		/* 58 */
+		67.4% { transform: rotate(-47deg); }
+		/* 57 - 49 */
+		66.3% { transform: rotate(-50deg); }
+		57.0% { transform: rotate(-50deg); }
+		/* 42 */
+		48.8% { transform: rotate(-54deg); }
+		/* 34 */
+		39.5% { transform: rotate(-73deg); }
+		/* 32 - 23 */
+		37.2% { transform: rotate(-70deg); }
+		26.7% { transform: rotate(-70deg); }
+		/* 10 - 3 */
+		11.6% { transform: rotate(-66deg); }
+		03.5% { transform: rotate(-66deg); }
+		/* 0 */
+		00.0% { transform: rotate(-61deg); }
+	}
+
+.person__body {}
+	.person__body::before {
+		top: -30vh; left: -28.7vh;
+		width: 37vh; height: 49vh;
+		background: linear-gradient(123deg, #fdf6eb 46.9vh, transparent calc(46.9vh + 1px));
+		border-radius: 50% 0 0 0;
+		transform-origin: top center;
+
+		animation: bodyBefore var(--animation);
+	}
+	@keyframes bodyBefore {
+		/* 86 - 74 */
+		100%  { transform: translate(0vh, 0vh) rotate(-27deg) scale(1, 1); }
+		86.0% { transform: translate(0vh, 0vh) rotate(-27deg) scale(1, 1); }
+		/* 68 */
+		79.1% { transform: translate(0vh, 0vh) rotate(-27deg) scale(0.98, 1); }
+		/* 60 */
+		69.8% { transform: translate(1.1vh, 0vh) rotate(-27deg) scale(0.9, 1); }
+		/* 58 */
+		67.4% { transform: translate(1.1vh, 0vh) rotate(-27deg) scale(0.9, 1); }
+		/* 57 - 42 */
+		66.3% { transform: translate(2.1vh, 0vh) rotate(-27deg) scale(0.8, 1); }
+		48.8% { transform: translate(2.1vh, 0vh) rotate(-27deg) scale(0.8, 1); }
+		/* 34 */
+		39.5% { transform: translate(7.8vh, 0vh) rotate(-14deg) scale(0.8, 1); }
+		/* 32 - 0 */
+		37.2% { transform: translate(9.2vh, 0vh) rotate(-14deg) scale(0.75, 1); }
+		00.0% { transform: translate(9.2vh, 0vh) rotate(-14deg) scale(0.75, 1); }
+	}
+	.person__body::after {
+		top: -34vh; left: -1vh;
+		width: 13.4vh; height: 37.7vh;
+		background: #fdf6eb;
+		border-radius: 10% 10% 80% 10% / 10% 10% 55% 10%;
+		z-index: -1;
+
+		animation: bodyAfter var(--animation);
+	}
+	@keyframes bodyAfter {
+		/* 86 - 74 */
+		100%  { transform: translate(0vh, 0vh) rotate(-24deg); }
+		86.0% { transform: translate(0vh, 0vh) rotate(-24deg); }
+		/* 68 */
+		79.1% { transform: translate(-0.3vh, 0vh) rotate(-24deg); }
+		/* 60 - 58 */
+		69.8% { transform: translate(-1.8vh, 0vh) rotate(-29deg); }
+		67.4% { transform: translate(-1.8vh, 0vh) rotate(-29deg); }
+		/* 57 - 49 */
+		66.3% { transform: translate(-1.8vh, 0vh) rotate(-30deg); }
+		57.0% { transform: translate(-1.8vh, 0vh) rotate(-30deg); }
+		/* 42 */
+		48.8% { transform: translate(-1.8vh, 0vh) rotate(-32deg); }
+		/* 34 */
+		39.5% { transform: translate(-1vh, -0.2vh) rotate(-32deg); }
+		/* 32 - 3 */
+		37.2% { transform: translate(-0.4vh, -0.2vh) rotate(-33deg); }
+		03.5% { transform: translate(-0.4vh, -0.2vh) rotate(-33deg); }
+		/* 0 */
+		00.0% { transform: translate(-0.7vh, -0.2vh) rotate(-33deg); }
+	}
+	.person__body > div:nth-child(1) {
+		top: -32vh; left: -11vh;
+		width: 23vh; height: 26vh;
+		background: linear-gradient(-233deg, transparent calc(7.6vh - 1px), #252631 7.6vh, #252631 21.8vh, transparent calc(21.8vh + 1px)) 2% 76.7% / 12vh 2.3vh no-repeat, linear-gradient(-124deg, transparent calc(7.6vh - 1px), #252631 7.6vh, #252631 21.8vh, transparent calc(21.8vh + 1px)) 97% 76.7% / 12vh 2.3vh no-repeat, linear-gradient(-79deg, transparent calc(6.9vh - 1px), #e8d5b9 6.9vh, #e8d5b9 21.8vh, transparent calc(21.8vh + 1px)) 97% 0 / 50% 79% no-repeat, linear-gradient(81deg, transparent calc(6.6vh - 1px), #e8d5b9 6.6vh, #e8d5b9 21.8vh, transparent calc(21.8vh + 1px)) 0 0 / 50% 79% no-repeat, linear-gradient(100deg, transparent calc(21.5vh - 1px), #252631 21.5vh, #252631 21.8vh, transparent calc(21.8vh + 1px)), linear-gradient(79deg, transparent calc(4.3vh - 1px), #252631 4.3vh, #252631 4.6vh, transparent calc(4.6vh + 1px));
+
+		animation: bodyDiv1 var(--animation);
+	}
+	@keyframes bodyDiv1 {
+		/* 86 - 74 */
+		100%  { transform: translate(0vh, 0vh) scale(1, 1) rotate(-16deg); }
+		86.0% { transform: translate(0vh, 0vh) scale(1, 1) rotate(-16deg); }
+		/* 68 */
+		79.1% { transform: translate(0vh, 0vh) scale(1, 1) rotate(-17.7deg); }
+		/* 60 */
+		69.8% { transform: translate(3.5vh, 3.3vh) scale(0.9, 1) rotate(-28.7deg); }
+		/* 58 */
+		67.4% { transform: translate(4.9vh, 3.5vh) scale(0.85, 1) rotate(-28.7deg); }
+		/* 57 - 49 */
+		66.3% { transform: translate(4.9vh, 4.2vh) scale(0.85, 1) rotate(-30.7deg); }
+		57.0% { transform: translate(4.9vh, 4.2vh) scale(0.85, 1) rotate(-30.7deg); }
+		/* 42 */
+		48.8% { transform: translate(5.2vh, 4.2vh) scale(0.85, 1) rotate(-30.7deg); }
+		/* 34 */
+		39.5% { transform: translate(6.9vh, 5.9vh) scale(0.85, 1) rotate(-34deg); }
+		/* 32 */
+		37.2% { transform: translate(7.8vh, 5.9vh) scale(0.85, 1) rotate(-35deg); }
+		/* 29 - 0 */
+		33.7% { transform: translate(9.4vh, 5vh) scale(0.75, 1) rotate(-38deg); }
+		00.0% { transform: translate(9.4vh, 5vh) scale(0.75, 1) rotate(-38deg); }
+	}
+		.person__body > div:nth-child(1)::before {
+			/* red dot */
+			top: 7.3vh; left: 9.8vh;
+			width: 4.7vh; height: 7vh;
+			background: #f9413d;
+			border-radius: 50%;
+		}
+	.person__body > div:nth-child(2) {}
+		.person__body > div:nth-child(2)::before {
+			/* left shoulder */
+			top: -36.6vh; left: -34.8vh;
+			width: 32vh; height: 11vh;
+			background: linear-gradient(165deg, #405b68, #6b92a5 15.1vh, transparent calc(15.1vh + 1px)) 0vh 0vh / 200% no-repeat;
+			border-radius: 60% 10% 10% 10% / 30% 10% 10% 10%;
+			transform-origin: top right;
+
+			animation: bodyDiv2Before var(--animation);
+		}
+		@keyframes bodyDiv2Before {
+			/* 86 - 74 */
+			100%  { background-position: -12vh 0vh;
+							transform: rotate(-27deg) translate(0vh, 0vh); }
+			86.0% { transform: rotate(-27deg) translate(0vh, 0vh); }
+			/* 68 */
+			79.1% { transform: rotate(-28deg) translate(0vh, 0vh); }
+			/* 60 */
+			69.8% { transform: rotate(-33deg) translate(0vh, 0vh); }
+			/* 58 */
+			67.4% { transform: rotate(-37deg) translate(0vh, 0vh); }
+			/* 57 - 49 */
+			66.3% { transform: rotate(-39deg) translate(0vh, 0vh); }
+			57.0% { transform: rotate(-39deg) translate(0vh, 0vh); }
+			/* 42 */
+			48.8% { background-position: -12vh 0vh;
+							transform: rotate(-42deg) translate(0vh, 0vh); }
+			/* 34 */
+			39.5% { background-position: -5vh 0vh;
+							transform: rotate(-46deg) translate(0vh, 0vh); }
+			/* 32 */
+			37.2% { background-position: -5vh 0vh;
+							transform: rotate(-49deg) translate(0vh, 0vh); }
+			/* 29 - 3 */
+			33.7% { background-position: -2vh 0vh;
+							transform: rotate(-49deg) translate(0vh, 0vh); }
+			03.5% { background-position: -2vh 0vh;
+							transform: rotate(-49deg) translate(0vh, 0vh); }
+			/* 0 */
+			00.0% { background-position: -2vh 0vh;
+							transform: rotate(-50deg) translate(0vh, -0.7vh); }
+		}
+		.person__body > div:nth-child(2)::after {
+			/* right shoulder */
+			top: -36.2vh; left: -3.2vh;
+			width: 24.5vh; height: 8.9vh;
+			background: linear-gradient(190deg, #405b68, #6b92a5 8.9vh, transparent calc(8.9vh + 1px));
+			border-radius: 10% 40% 0% 0% / 10% 100% 0% 0%;
+
+			animation: bodyDiv2After var(--animation);
+		}
+		@keyframes bodyDiv2After {
+			/* 86 - 74 */
+			100%  { transform: translate(0vh, 0vh) rotate(-24deg) scale(1, 1); }
+			86.0% { transform: translate(0vh, 0vh) rotate(-24deg) scale(1, 1); }
+			/* 68 */
+			79.1% { transform: translate(-0.9vh, 0.4vh) rotate(-27deg) scale(1, 1); }
+			/* 60 */
+			69.8% { transform: translate(-3.6vh, -0.2vh) rotate(-27deg) scale(1, 1); }
+			/* 58 */
+			67.4% { transform: translate(-4.3vh, 0.3vh) rotate(-27deg) scale(1, 1); }
+			/* 57 - 49 */
+			66.3% { transform: translate(-4.8vh, 0.7vh) rotate(-27deg) scale(1, 1); }
+			57.0% { transform: translate(-4.8vh, 0.7vh) rotate(-27deg) scale(1, 1); }
+			/* 42 */
+			48.8% { transform: translate(-4.5vh, 1.2vh) rotate(-27deg) scale(1, 1); }
+			/* 34 */
+			39.5% { transform: translate(-1.3vh, 0.5vh) rotate(-27deg) scale(0.9, 1); }
+			/* 32 */
+			37.2% { transform: translate(-0.6vh, -0.1vh) rotate(-27deg) scale(0.9, 1); }
+			/* 29 - 23 */
+			33.7% { transform: translate(-0.6vh, 1.4vh) rotate(-32deg) scale(0.9, 1); }
+			26.7% { transform: translate(-0.6vh, 1.4vh) rotate(-32deg) scale(0.9, 1); }
+			/* 10 - 3 */
+			11.6% { transform: translate(-0.6vh, 2.1vh) rotate(-32deg) scale(0.9, 1); }
+			03.5% { transform: translate(-0.6vh, 2.1vh) rotate(-32deg) scale(0.9, 1); }
+			/* 0 */
+			00.0% { transform: translate(-1.2vh, 0.9vh) rotate(-31deg) scale(0.9, 1); }
+		}
+	.person__body > div:nth-child(3) {
+		top: -9.3vh; left: -3.1vh;
+		width: 21.3vh; height: 12vh;
+		background: radial-gradient(ellipse, #e8d5b9 70%, transparent calc(70% + 1px)) 14.3vh 2.1vh / 4.5vh 7.6vh no-repeat, radial-gradient(ellipse, #dd9367 70%, transparent calc(70% + 1px)) 9.5vh 6.9vh / 2.2vh 3.2vh no-repeat, radial-gradient(ellipse, #f6413f 70%, transparent calc(70% + 1px)) 9.5vh 2.6vh / 2.2vh 3.2vh no-repeat, linear-gradient(#3d517e, #3d517e) 3.6vh 2.4vh / 2vh 8vh no-repeat, #fff6eb;
+
+		animation: bodyDiv3 var(--animation);
+	}
+	@keyframes bodyDiv3 {
+		/* 86 - 74 */
+		100%  { transform: translate(0vh, 0vh) scale(1, 1) skew(0deg, -12deg) rotate(0deg); }
+		86.0% { transform: translate(0vh, 0vh) scale(1, 1) skew(0deg, -12deg) rotate(0deg); }
+		/* 68 */
+		79.1% { transform: translate(1.2vh, 0vh) scale(1, 1) skew(0deg, -12deg) rotate(0deg); }
+		/* 60 */
+		69.8% { transform: translate(7.4vh, -0.2vh) scale(0.85, 1) skew(0deg, -19deg) rotate(0deg); }
+		/* 58 */
+		67.4% { transform: translate(9.2vh, -0.2vh) scale(0.78, 1) skew(0deg, -20deg) rotate(0deg); }
+		/* 57 - 49 */
+		66.3% { transform: translate(9.5vh, -0.2vh) scale(0.77, 1) skew(0deg, -25deg) rotate(5deg); }
+		57.0% { transform: translate(9.5vh, -0.2vh) scale(0.77, 1) skew(0deg, -25deg) rotate(5deg); }
+		/* 42 */
+		48.8% { transform: translate(9.9vh, -0.4vh) scale(0.77, 1) skew(0deg, -25deg) rotate(5deg); }
+		/* 34 */
+		39.5% { transform: translate(12.4vh, -0.4vh) scale(0.74, 1) skew(0deg, -23deg) rotate(2deg); }
+		/* 32 */
+		37.2% { transform: translate(13.8vh, -0.4vh) scale(0.72, 1) skew(0deg, -25deg) rotate(2deg); }
+		/* 29 - 3 */
+		33.7% { transform: translate(13.9vh, -0.4vh) scale(0.72, 1) skew(0deg, -25deg) rotate(2deg); }
+		03.5% { transform: translate(13.9vh, -0.4vh) scale(0.72, 1) skew(0deg, -25deg) rotate(2deg); }
+		/* 0 */
+		00.0% { transform: translate(13.7vh, -0.6vh) scale(0.71, 1) skew(0deg, -25deg) rotate(2deg); }
+	}
+		.person__body > div:nth-child(3)::before {
+			bottom: 100%; left: 0vh;
+			width: 100%; height: 1.5vh;
+			background: #6b92a5;
+			transform-origin: bottom left;
+			transform: skew(60deg, 0deg);
+		}
+		.person__body > div:nth-child(3)::after {
+			top: 0vh; right: 100%;
+			width: 2.6vh; height: 100%;
+			background: #3c517e;
+			transform-origin: right top;
+			transform: skew(0deg, 30deg);
+		}
+
+.person__helmet {
+	top: -96.7vh; left: -33vh;
+	width: 63.6vh; height: 63.6vh;
+	border-radius: 50%;
+	box-sizing: border-box;
+	box-shadow: inset 0.6vh -0.5vh 0.2vh -0.5vh rgb(159 134 109 / 50%), 1.7vh -0.5vh 2vh -1vh rgb(255 233 178), 1.5vh -0.5vh 0vh -1vh rgb(255 233 178), inset -2.4vh 0.5vh 1vh -1.5vh rgb(255 233 178 / 80%), inset -1.6vh 0.5vh 4vh -1vh rgb(255 233 178 / 80%), inset 0 0 6vh rgb(255 207 186 / 30%);
+
+	animation: helmet var(--animation);
+}
+@keyframes helmet {
+	/* 86 */
+	100%  { transform: translate(0vh, 0vh) scale(1, 1); }
+	/* 81 - 68 */
+	94.2% { transform: translate(0vh, -0.1vh) scale(1, 1); }
+	79.1% { transform: translate(0vh, -0.1vh) scale(1, 1); }
+	/* 60 */
+	69.8% { transform: translate(0.2vh, 1.5vh) scale(1.01, 0.99); }
+	/* 58 */
+	67.4% { transform: translate(0.4vh, 1.2vh) scale(1.01, 0.99); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0.7vh, 0.6vh) scale(1, 1); }
+	57.0% { transform: translate(0.7vh, 0.6vh) scale(1, 1); }
+	/* 42 */
+	48.8% { transform: translate(1vh, 1.1vh) scale(1, 0.99); }
+	/* 34 */
+	39.5% { transform: translate(2.4vh, 1.1vh) scale(1.01, 0.99); }
+	/* 32 */
+	37.2% { transform: translate(3.6vh, 0.6vh) scale(1, 1); }
+	/* 29 - 23 */
+	33.7% { transform: translate(3.9vh, 0.4vh) scale(1, 1); }
+	26.7% { transform: translate(3.9vh, 0.4vh) scale(1, 1); }
+	/* 10 */
+	11.6% { transform: translate(3.4vh, 1.8vh) scale(1, 0.98); }
+	/* 3 */
+	03.5% { transform: translate(2.6vh, 0.6vh) scale(1, 01); }
+	/* 0 */
+	00.0% { transform: translate(2.6vh, 0.5vh) scale(1, 01); }
+}
+	.person__helmet::before {
+		top: 20vh; left: 1vh;
+		width: 6.6vh; height: 23vh;
+		border-radius: 50%;
+		box-sizing: border-box;
+		border: 0.5vh solid #b5b4b0;
+
+		animation: helmetBefore var(--animation);
+	}
+	@keyframes helmetBefore {
+	 /* 86 - 68 */
+	 100%  { transform: translate(0vh, 0vh) scale(1, 1); }
+	 79.1% { transform: translate(0vh, 0vh) scale(1, 1); }
+	 /* 60 */
+	 69.8% { transform: translate(0.5vh, 0vh) scale(1.35, 1); }
+	 /* 58 - 49 */
+	 67.4% { transform: translate(0.7vh, 0vh) scale(1.39, 1); }
+	 57.0% { transform: translate(0.7vh, 0vh) scale(1.39, 1); }
+	 /* 42 */
+	 48.8% { transform: translate(1.1vh, 0vh) scale(1.5, 1); }
+	 /* 34 */
+	 39.5% { transform: translate(4vh, 0.9vh) scale(2, 1); }
+	 /* 32 */
+	 37.2% { transform: translate(5.8vh, 1.2vh) scale(2.2, 1); }
+	 /* 29 - 0 */
+	 33.7% { transform: translate(5.7vh, 1.2vh) scale(2.3, 1); }
+	 00.0% { transform: translate(5.7vh, 1.2vh) scale(2.3, 1); }
+	}
+
+.person__head {
+	top: -40.6vh; left: -9vh;
+	width: 16vh; height: 5vh;
+	background: #262632;
+	border-radius: 50%;
+
+	animation: head var(--animation);
+}
+@keyframes head {
+	/* 86 - 68 */
+	100%  { transform: translate(0vh, 0vh); }
+	79.1% { transform: translate(0vh, 0vh); }
+	/* 60 */
+	69.8% { transform: translate(0.4vh, 0.6vh); }
+	/* 58 */
+	67.4% { transform: translate(0.7vh, 0.4vh); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0.7vh, 0.1vh); }
+	57.0% { transform: translate(0.7vh, 0.1vh); }
+	/* 42 */
+	48.8% { transform: translate(0.9vh, 0.3vh); }
+	/* 34 */
+	39.5% { transform: translate(2.5vh, 0.5vh); }
+	/* 32 - 23 */
+	37.2% { transform: translate(3.4vh, 0.2vh); }
+	26.7% { transform: translate(3.4vh, 0.2vh); }
+	/* 10 */
+	11.6% { transform: translate(3vh, 0.7vh); }
+	/* 3 - 0 */
+	03.5% { transform: translate(2.6vh, 0.2vh); }
+	00.0% { transform: translate(2.6vh, 0.2vh); }
+}
+	.person__head::before {
+		/* neck */
+		bottom: 0vh; left: 1.4vh;
+		width: 13vh; height: 20vh;
+		background: radial-gradient(#e1745699 70%, transparent calc(70% + 1px)) 21% 0% / 120% 67% no-repeat, linear-gradient(85deg, #e5926b, #eaa586, #e07f52);
+		clip-path: polygon(0% 0%, 79% 0%, 100% 100%, 0% 100%);
+		transform-origin: bottom left;
+		transform: rotate(-1deg);
+
+		animation: headBefore var(--animation);
+	}
+	@keyframes headBefore {
+		/* 86 */
+		100%  { background-position: 21% 0%, 0 0;
+						background-size: 120% 67%, 100% 100%;
+						transform: rotate(-1deg); }
+		/* 81 - 68 */
+		94.2% { background-position: 21% -7%, 0 0; }
+		79.1% { background-position: 21% -7%, 0 0; }
+		/* 60 - 42 */
+		69.8% { background-position: 21% 1%, 0 0;
+						background-size: 120% 67%, 100% 100%; }
+		48.8% { background-position: 21% 1%, 0 0;
+						background-size: 120% 67%, 100% 100%; }
+		/* 34 */
+		39.5% { background-position: 0vh -6.6vh, 0 0;
+						background-size: 200% 100%, 100% 100%; }
+		/* 32 */
+		37.2% { transform: rotate(-1deg);
+						background-position: 2.4vh -7.6vh, 0 0;
+						background-size: 200% 100%, 100% 100%; }
+		/* 29 - 3 */
+		33.7% { background-position: 2.4vh -7.6vh, 0 0;
+						transform: rotate(0deg); }
+		03.5% { background-position: 2.4vh -7.6vh, 0 0;
+						transform: rotate(0deg); }
+		/* 0 */
+		00.0% { background-position: 2.4vh -7.6vh, 0 0;
+						transform: rotate(-1deg);
+						background-size: 200% 100%, 100% 100%; }
+	}
+	.person__head::after {
+		top: 0vh; left: 0vh;
+		width: 100%; height: 10vh;
+		border-radius: 50% 50% 50% 50% / 23% 23% 23% 23%;
+		box-shadow: inset 0 -5.3vh #3a5283;
+	}
+
+.person__hair {
+	top: -43.8vh; left: -11.7vh;
+	width: 40.1vh; height: 36vh;
+	background: radial-gradient(#5f140c, #3c1522);
+	border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+	box-shadow: 0.6vh 1.5vh 1vh -1.5vh rgb(255 233 178 / 80%), inset -0.4vh -1.5vh 1vh -1.5vh rgb(255 233 178 / 60%);
+	z-index: -1;
+
+	animation: hair var(--animation);
+}
+@keyframes hair {
+	/* 86 */
+	100%  { border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+					transform: translate(0vh, 0vh) scale(1, 1); }
+	/* 81 */
+	94.2% { transform: translate(0vh, -0.6vh) scale(1, 1.01); }
+	/* 68 */
+	79.1% { transform: translate(0vh, -0.3vh) scale(0.97, 1.02); }
+	/* 60 */
+	69.8% { transform: translate(0.2vh, 0.9vh) scale(0.98, 1.04); }
+	/* 58 */
+	67.4% { transform: translate(0.2vh, 0.7vh) scale(0.98, 1.02); }
+	/* 57 */
+	66.3% { transform: translate(0.2vh, 0.5vh) scale(1, 1); }
+	/* 49 */
+	57.0% { transform: translate(1.4vh, 0.5vh) scale(1, 0.98); }
+	/* 42 */
+	48.8% { border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+					transform: translate(0vh, 1.1vh) scale(0.98, 0.99); }
+	/* 34 */
+	39.5% { border-radius: 55% 45% 50% 50% / 65% 40% 60% 35%;
+					transform: translate(-4.6vh, 1.8vh) scale(1, 0.99); }
+	/* 32 */
+	37.2% { border-radius: 55% 45% 50% 50% / 65% 40% 60% 35%;
+					transform: translate(-5.6vh, 1.3vh) scale(0.98, 0.98); }
+	/* 29 - 27 */
+	33.7% { transform: translate(-5.4vh, 0.9vh) scale(0.98, 0.98); }
+	31.4% { transform: translate(-5.4vh, 0.9vh) scale(0.98, 0.98); }
+	/* 25 - 10 */
+	29.1% { transform: translate(-5.2vh, 1.1vh) scale(0.98, 0.98); }
+	11.6% { transform: translate(-5.2vh, 1.1vh) scale(0.98, 0.98); }
+	/* 3 */
+	03.5% { transform: translate(-5.4vh, 1.1vh) scale(0.98, 0.94); }
+	/* 0 */
+	00.0% { border-radius: 55% 45% 50% 50% / 65% 40% 60% 35%;
+					transform: translate(-4.7vh, 0.7vh) scale(1, 0.94); }
+}
+
+.person__face1 {
+	top: -43vh; left: -3.9vh;
+	width: 24.4vh; height: 38.7vh;
+	background: radial-gradient(#5f140c 70%, transparent calc(70% + 1px)) -7.4vh 19vh / 10vh 17vh no-repeat, linear-gradient(108deg, #5f140c 19%, transparent calc(19% + 1px)) 0vh 7vh / 100% 100% no-repeat, linear-gradient(0deg, #e5926b 84%, transparent calc(84% + 1px));
+	border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+	overflow: hidden;
+
+	animation: face1 var(--animation);
+}
+@keyframes face1 {
+	/* 86 */
+	100%  { background-position: -11.4vh 19vh, -4vh 7vh, 0 0;
+					border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+					opacity: 1;
+					transform: translate(0vh, 0vh); }
+	/* 81 - 74 */
+	94.2% { transform: translate(0vh, -0.7vh); }
+	86.0% { transform: translate(0vh, -0.7vh); }
+	/* 68 */
+	79.1% { transform: translate(0vh, -0.3vh); }
+	/* 60 */
+	69.8% { transform: translate(0vh, 0.4vh); }
+	/* 58 - 49 */
+	67.4% { transform: translate(0vh, 0.1vh); }
+	57.0% { transform: translate(0vh, 0.1vh); }
+	/* 42 */
+	48.8% { background-position: -11.4vh 19vh, -4vh 7vh, 0 0;
+					border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+					transform: translate(0.6vh, 0.4vh); }
+	/* 34 - 23 */
+	39.5% { background-position: -7.4vh 19vh, 0vh 7vh, 0 0;
+					border-radius: 30% 70% 30% 70% / 20% 50% 30% 40%;
+					transform: translate(2.4vh, -0.5vh); }
+	37.3% { background-position: -7.4vh 19vh, 0vh 7vh, 0 0;
+					border-radius: 30% 70% 30% 70% / 20% 50% 30% 40%;
+					transform: translate(2.4vh, -0.5vh);
+					opacity: 1; }
+	37.299% { opacity: 0; }
+	00.0% { background-position: -7.4vh 19vh, 0vh 7vh, 0 0;
+					border-radius: 30% 70% 30% 70% / 20% 50% 30% 40%;
+					opacity: 0;
+					transform: translate(2.4vh, -0.5vh); }
+}
+	.person__face1 > div:nth-child(1) {}
+		.person__face1 > div:nth-child(1)::before {
+			/* left cheek */
+			top: 17.4vh; left: 1vh;
+			width: 12vh; height: 8vh;
+			background: #cf6f5e;
+			border-radius: 50%;
+
+			animation: face1Div1Before var(--animation);
+		}
+		@keyframes face1Div1Before {
+			/* 86 - 74 */
+			100%  { transform: translate(0vh, 0vh) rotate(45deg) scale(1, 1); }
+			86.0% { transform: translate(0vh, 0vh) rotate(45deg) scale(1, 1); }
+			/* 68 */
+			79.1% { transform: translate(0vh, 0.4vh) rotate(45deg) scale(1, 1); }
+			/* 60 */
+			69.8% { transform: translate(-0.2vh, 0.9vh) rotate(45deg) scale(1, 1); }
+			/* 58 */
+			67.4% { transform: translate(-0.2vh, 0.4vh) rotate(45deg) scale(1, 1); }
+			/* 57 - 49 */
+			66.3% { transform: translate(-0.2vh, 0.9vh) rotate(45deg) scale(1, 1); }
+			57.0% { transform: translate(-0.2vh, 0.9vh) rotate(45deg) scale(1, 1); }
+			/* 42 */
+			48.8% { transform: translate(0.3vh, 1.3vh) rotate(45deg) scale(1, 1); }
+			/* 34 - 10 */
+			39.5% { transform: translate(4.8vh, 5vh) rotate(32deg) scale(1.09, 1); }
+			00.0% { transform: translate(4.8vh, 5vh) rotate(32deg) scale(1.09, 1); }
+		}
+		.person__face1 > div:nth-child(1)::after {
+			/* right cheek */
+			top: 23.1vh; left: 29.7vh;
+			width: 12vh; height: 8vh;
+			background: #cf6f5e;
+			border-radius: 50%;
+
+			animation: face1Div1After var(--animation);
+		}
+		@keyframes face1Div1After {
+			/* 86 - 74 */
+			100%  { transform: translate(0vh, 0vh) rotate(135deg); }
+			86.0% { transform: translate(0vh, 0vh) rotate(135deg); }
+			/* 68 */
+			79.1% { transform: translate(0vh, 0.3vh) rotate(135deg); }
+			/* 60 */
+			69.8% { transform: translate(0.1vh, 0.8vh) rotate(135deg); }
+			/* 58 */
+			67.4% { transform: translate(0vh, 0.3vh) rotate(135deg); }
+			/* 57 - 49 */
+			66.3% { transform: translate(0vh, 0.9vh) rotate(135deg); }
+			57.0% { transform: translate(0vh, 0.9vh) rotate(135deg); }
+			/* 42 */
+			48.8% { transform: translate(0.6vh, 1.1vh) rotate(135deg); }
+			/* 34 - 10 */
+			39.5% { transform: translate(7.6vh, 0.1vh) rotate(135deg); }
+			00.0% { transform: translate(7.6vh, 0.1vh) rotate(135deg); }
+		}
+
+.person__face1 .person__mouth {
+	top: 29.2vh; left: 18.2vh;
+
+	animation: face1Mouth var(--animation);
+}
+@keyframes face1Mouth {
+	/* 86 - 74 */
+	100%  { transform: translate(0vh, 0vh) rotate(0deg); }
+	86.0% { transform: translate(0vh, 0vh) rotate(0deg); }
+	/* 68 */
+	79.1% { transform: translate(0vh, 0.2vh) rotate(0deg); }
+	/* 60 */
+	69.8% { transform: translate(0vh, 0.4vh) rotate(0deg); }
+	/* 58 */
+	66.3% { transform: translate(0vh, 0.1vh) rotate(0deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0vh, 0.8vh) rotate(0deg); }
+	57.0% { transform: translate(0vh, 0.8vh) rotate(0deg); }
+	/* 42 */
+	48.8% { transform: translate(0.3vh, 1.1vh) rotate(0deg); }
+	/* 34 - 10 */
+	39.5% { transform: translate(6.7vh, 4.3vh) rotate(-3deg); }
+	00.0% { transform: translate(6.7vh, 4.3vh) rotate(-3deg); }
+}
+	.person__face1 .person__mouth::before {
+		top: -4.1vh; left: -10.2vh;
+		width: 8.8vh; height: 7.2vh;
+		background: radial-gradient(#cf6f5e 70%, transparent calc(70% + 1px)) 50% -7.7vh / 14.4vh 9.5vh no-repeat, radial-gradient(#fefdf9 70%, transparent calc(70% + 1px)) 50% -6.2vh / 8vh 9.5vh no-repeat, radial-gradient(#000000 70%, transparent calc(70% + 1px)) 50% -10.1vh / 8.4vh 16vh no-repeat, #cf6f5e;
+		border-radius: 20% 20% 50% 50% / 10% 10% 90% 90%;
+
+		animation: face1MouthBefore var(--animation);
+	}
+	@keyframes face1MouthBefore {
+		/* 86 - 74 */
+		100%  { border-radius: 20% 20% 50% 50% / 10% 10% 90% 90%;
+						background-position: 50% -7.7vh, 50% -6.2vh, 50% -10.1vh;
+						transform: translate(0vh, 0vh) scale(1, 1); }
+		86.0% { transform: translate(0vh, 0vh) scale(1, 1); }
+		/* 68 */
+		79.1% { background-position: 50% -7.7vh, 50% -6.2vh, 50% -10.1vh;
+						transform: translate(0vh, 0.1vh) scale(1, 0.9); }
+		/* 60 */
+		69.8% { background-position: 50% -6.7vh, 50% -10.2vh, 50% -20vh;
+						transform: translate(0vh, 0.8vh) scale(1, 0.3); }
+		/* 58 */
+		67.4% { background-position: 50% -6.7vh, 50% -5.6vh, 50% -20vh;
+						transform: translate(0vh, 0.6vh) scale(1, 0.45); }
+		/* 57 - 42 */
+		66.3% { border-radius: 20% 20% 50% 50% / 10% 10% 90% 90%;
+						background-position: 50% -7.1vh, 50% -5.1vh, 50% -20vh;
+						transform: translate(0vh, 0.5vh) scale(1, 0.52); }
+		48.8% { border-radius: 20% 20% 50% 50% / 10% 10% 90% 90%;
+						background-position: 50% -7.1vh, 50% -5.1vh, 50% -20vh;
+						transform: translate(0vh, 0.5vh) scale(1, 0.52); }
+		/* 34 - 10 */
+		39.5% { border-radius: 20% 20% 40% 60% / 10% 10% 90% 90%;
+						background-position: 50% -7.1vh, 90% -5.3vh, 50% -20vh;
+						transform: translate(2.1vh, 0.5vh) scale(0.57, 0.52); }
+		00.0% { border-radius: 20% 20% 40% 60% / 10% 10% 90% 90%;
+						background-position: 50% -7.1vh, 90% -5.3vh, 50% -20vh;
+						transform: translate(2.1vh, 0.5vh) scale(0.57, 0.52); }
+	}
+	.person__face1 .person__mouth::after {
+		top: -10vh; left: -13.2vh;
+		width: 14.4vh; height: 7.5vh;
+		border-bottom: 0.2vh solid #000000;
+		border-left: 0.2vh solid transparent;
+		border-right: 0.2vh solid transparent;
+
+		animation: face1MouthAfter var(--animation);
+	}
+	@keyframes face1MouthAfter {
+		/* 86 - 68 */
+		100%  { border-radius: 0 0 50% 50% / 0 0 70% 70%;
+						border-bottom: 0.2vh solid #000000;
+						transform: translate(0vh, 0vh) scale(1, 1) rotate(0deg); }
+		79.1% { border-radius: 0 0 50% 50% / 0 0 70% 70%; }
+		/* 60 */
+		69.8% { border-radius: 0 0 50% 50% / 0 0 45% 45%; }
+		/* 58 */
+		67.4% { border-radius: 0 0 50% 50% / 0 0 50% 50%; }
+		/* 57 - 42 */
+		66.3% { border-radius: 0 0 50% 50% / 0 0 60% 60%;
+						border-bottom: 0.2vh solid #000000;
+						transform: translate(0vh, 0vh) scale(1, 1) rotate(0deg); }
+		48.8% { border-radius: 0 0 50% 50% / 0 0 60% 60%;
+						border-bottom: 0.2vh solid #000000;
+						transform: translate(0vh, 0vh) scale(1, 1) rotate(0deg); }
+		/* 34 - 10 */
+		39.5% { border-radius: 0 0 50% 50% / 0 0 60% 60%;
+						border-bottom: 0.4vh solid #000000;
+						transform: translate(3.2vh, 2.3vh) scale(0.6, 0.6) rotate(8deg); }
+		00.0% { border-radius: 0 0 50% 50% / 0 0 60% 60%;
+						border-bottom: 0.4vh solid #000000;
+						transform: translate(3.2vh, 2.3vh) scale(0.6, 0.6) rotate(8deg); }
+	}
+
+.person__face1 .person__righteye {
+	top: 14.5vh; left: 16.7vh;
+	width: 5.7vh; height: 3.4vh;
+	background: radial-gradient(circle, #fefdf9 8%, transparent calc(8% + 1px)) -0.7vh -0.5vh no-repeat, radial-gradient(circle, #000001 38%, transparent calc(30% + 1px)) -0.4vh -0.1vh no-repeat, #fefdf9;
+	border-radius: 60% 40% 60% 40% / 100% 65% 35% 0%;
+	box-shadow: inset -0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+
+	animation: face1Righteye var(--animation);
+}
+@keyframes face1Righteye {
+	/* 86 - 74 */
+	100%  { box-shadow: inset -0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 0vh) scale(1, 1); }
+	86.0% { transform: translate(0vh, 0vh) scale(1, 1); }
+	/* 68 */
+	79.1% { transform: translate(0vh, 0.3vh) scale(1, 1); }
+	/* 60 */
+	69.8% { box-shadow: inset -0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 2.1vh) scale(1, 0.6); }
+	/* 58 */
+	67.4% { box-shadow: inset -0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 2.6vh) scale(1, 0.2); }
+	/* 57 */
+	66.3% { box-shadow: inset -0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 1.9vh) scale(1, 0.6); }
+	/* 56 - 49 */
+	65.1% { transform: translate(0vh, 1.4vh) scale(1, 0.75); }
+	57.0% { transform: translate(0vh, 1.4vh) scale(1, 0.75); }
+	/* 42 */
+	48.8% { box-shadow: inset -0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 1.9vh) scale(1, 0.75); }
+	/* 34 - 10 */
+	39.5% { box-shadow: inset -0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(5vh, 6.4vh) scale(1, 0.3); }
+	00.0% { box-shadow: inset -0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset -1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(5vh, 6.4vh) scale(1, 0.3); }
+}
+	.person__face1 .person__righteye::before {
+		top: -2.8vh; left: -3.6vh;
+		width: 11.6vh; height: 6.6vh;
+		background: radial-gradient(at 50% 50%, transparent 62%, #000001 calc(62% + 1px)) -0.6vh 0.3vh no-repeat;
+		border-radius: 50%;
+		clip-path: polygon(28% 90%, 28% 100%, 100% 100%, 100% 79%);
+		transform: rotate(-2.5deg);
+	}
+
+.person__face1 .person__lefteye {
+	top: 14.5vh; left: 2.1vh;
+	width: 5.7vh; height: 3.4vh;
+	background: radial-gradient(circle, #fefdf9 8%, transparent calc(8% + 1px)) 1vh -0.5vh no-repeat, radial-gradient(circle, #000001 38%, transparent calc(38% + 1px)) 0.7vh -0.1vh no-repeat, #fefdf9;
+	border-radius: 40% 60% 30% 70% / 70% 95% 5% 30%;
+	box-shadow: inset 0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+
+	animation: face1Lefteye var(--animation);
+}
+@keyframes face1Lefteye {
+	/* 86 - 74 */
+	100%  { box-shadow: inset 0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 0vh) scale(1, 1) rotate(0deg); }
+	86.0% { transform: translate(0vh, 0vh) scale(1, 1) rotate(0deg); }
+	/* 68 */
+	79.1% { transform: translate(0vh, 0.3vh) scale(1, 1) rotate(0deg); }
+	/* 60 */
+	69.8% { box-shadow: inset 0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 2.3vh) scale(1, 0.5) rotate(0deg); }
+	/* 58 */
+	67.4% { box-shadow: inset 0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 2.6vh) scale(1, 0.2) rotate(0deg); }
+	/* 57 */
+	66.3% { box-shadow: inset 0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0vh, 1.8vh) scale(1, 0.65) rotate(0deg); }
+	/* 56 - 49 */
+	65.1% { transform: translate(0vh, 1.4vh) scale(1, 0.75) rotate(0deg); }
+	57.0% { transform: translate(0vh, 1.4vh) scale(1, 0.75) rotate(0deg); }
+	/* 42 */
+	48.8% { box-shadow: inset 0.7vh 1.4vh 0 -1vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(0.4vh, 1.9vh) scale(1, 0.75) rotate(0deg); }
+	/* 34 - 27 */
+	39.5% { box-shadow: inset 0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(7.6vh, 7.2vh) scale(1, 0.2) rotate(0deg); }
+	31.4% { box-shadow: inset 0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(7.6vh, 7.2vh) scale(1, 0.2) rotate(0deg); }
+	/* 23 */
+	26.7% { transform: translate(1.3vh, -0.1vh) scale(0.9, 0.9) rotate(8deg); }
+	00.0% { box-shadow: inset 0.7vh 1.4vh 0 2vh #000001, inset 0vh 0.2vh 0 0vh #000001, inset 1.5vh 1.5vh 0 -1.5vh #000001;
+					transform: translate(1.3vh, -0.1vh) scale(0.9, 0.9) rotate(8deg); }
+}
+	.person__face1 .person__lefteye::before {
+		top: -2.7vh; left: -2vh;
+		width: 11.6vh; height: 6.6vh;
+		background: radial-gradient(at 50% 50%, transparent 62%, #000001 calc(62% + 1px)) 0.4vh 0.4vh no-repeat;
+		border-radius: 50%;
+		clip-path: polygon(0% 75%, 85% 100%, 0% 100%);
+		transform: rotate(-3.5deg);
+	}
+
+.person__glasses1 {
+	top: -27.5vh; left: 6.6vh;
+	width: 3.6vh; height: 2.6vh;
+	border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+	box-shadow: inset 0 0.2vh #f2dac0;
+
+	animation: glasses1 var(--animation);
+}
+@keyframes glasses1 {
+	/* 86 */
+	100%  { opacity: 1;
+					transform: translate(0vh, 0vh) scaleX(1) rotate(0deg); }
+	/* 81 - 74 */
+	94.2% { transform: translate(0vh, -0.7vh) scaleX(1) rotate(0deg); }
+	86.0% { transform: translate(0vh, -0.7vh) scaleX(1) rotate(0deg); }
+	/* 68 */
+	79.1% { transform: translate(0vh, 0vh) scaleX(1) rotate(0deg); }
+	/* 60 */
+	69.8% { transform: translate(0vh, 1.4vh) scaleX(1) rotate(0deg); }
+	/* 58 */
+	67.4% { transform: translate(0vh, 0.6vh) scaleX(1) rotate(0deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0vh, 1.2vh) scaleX(1) rotate(0deg); }
+	57.0% { transform: translate(0vh, 1.2vh) scaleX(1) rotate(0deg); }
+	/* 42 */
+	48.8% { transform: translate(1vh, 2vh) scaleX(1) rotate(0deg); }
+	/* 34 - 23 */
+	39.5% { transform: translate(10.6vh, 5.3vh) scaleX(0.4) rotate(-2deg); }
+	37.3% { opacity: 1;
+					transform: translate(10.6vh, 5.3vh) scaleX(0.4) rotate(-2deg); }
+	37.299% { opacity: 0; }
+	00.0% { opacity: 0; }
+}
+	.person__glasses1::before {
+		top: -3.6vh; left: 3.5vh;
+		width: 15.1vh; height: 8.9vh;
+		border: 0.2vh solid #f2dac0;
+		border-radius: 3.4vh;
+
+		animation: glasses1Before var(--animation);
+	}
+	@keyframes glasses1Before {
+		/* 86 - 49 */
+		100%  { transform: scaleX(1); }
+		57.0% { transform: scaleX(1); }
+		/* 42 */
+		48.8% { transform: scaleX(0.93); }
+		/* 34 - 10 */
+		39.5% { transform: scaleX(1.06); }
+		00.0% { transform: scaleX(1.06); }
+	}
+	.person__glasses1::after {
+		top: -3.6vh; left: -15.3vh;
+		width: 15.1vh; height: 8.9vh;
+		border: 0.2vh solid #f2dac0;
+		border-radius: 3.4vh;
+		transform-origin: right top;
+
+		animation: glasses1After var(--animation);
+	}
+	@keyframes glasses1After {
+		/* 86 - 49 */
+		100%  { transform: scaleX(1); }
+		57.0% { transform: scaleX(1); }
+		/* 42 */
+		48.8% { transform: scaleX(0.93); }
+		/* 34 - 10 */
+		39.5% { transform: scaleX(1.17); }
+		00.0% { transform: scaleX(1.17); }
+	}
+
+.person__face1 .person__rightbrow {
+	top: 10.2vh; left: 16.2vh;
+	width: 6.9vh; height: 1.5vh;
+	background: radial-gradient(#000001 70%, transparent calc(70% + 1px)) -1.1vh 0vh / 8.6vh 6vh;
+
+	animation: face1RightBrow var(--animation);
+}
+@keyframes face1RightBrow {
+	/* 86 - 74 */
+	100%  { transform: translate(0, 0) rotate(4deg); }
+	86.0% { transform: translate(0, 0) rotate(4deg); }
+	/* 68 */
+	79.1% { transform: translate(0, 0.3vh) rotate(4deg); }
+	/* 60 */
+	69.8% { transform: translate(0, 3.9vh) rotate(-3deg); }
+	/* 58 */
+	67.4% { transform: translate(0, 2.9vh) rotate(0deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0, 2.1vh) rotate(3deg); }
+	57.0% { transform: translate(0, 2.1vh) rotate(3deg); }
+	/* 42 */
+	48.8% { transform: translate(0.2vh, 3.1vh) rotate(3deg); }
+	/* 34 - 10 */
+	39.5% { transform: translate(6.6vh, 6.8vh) rotate(-1deg); }
+	00.0% { transform: translate(6.6vh, 6.8vh) rotate(-1deg); }
+}
+	.person__face1 .person__rightbrow::before {
+		top: -0.1vh; right: 0vh;
+		width: 7vh; height: 1.6vh;
+		border-radius: 2% 0% 0% 2% / 50% 0 0 50%;
+		border-left: 0.2vh solid #000001;
+	}
+	.person__face1 .person__rightbrow::after {
+		top: -0.2vh; right: 0vh;
+		width: 7.4vh; height: 1.6vh;
+		border-radius: 2% 0% 0% 2% / 50% 0 0 50%;
+		border-left: 0.2vh solid #000001;
+	}
+
+.person__face1 .person__leftbrow {
+	top: 10.5vh; left: 1.6vh;
+	width: 6.9vh; height: 1.5vh;
+	background: radial-gradient(#000001 70%, transparent calc(70% + 1px)) -0.5vh 0vh / 8.6vh 6vh;
+
+	animation: face1LeftBrow var(--animation);
+}
+@keyframes face1LeftBrow {
+	/* 86 - 74 */
+	100%  { transform: translate(0, 0) rotate(-4deg); }
+	86.0% { transform: translate(0, 0) rotate(-4deg); }
+	/* 68 */
+	79.1% { transform: translate(0, 0.4vh) rotate(-4deg); }
+	/* 60 */
+	69.8% { transform: translate(-0.2vh, 3.4vh) rotate(2deg); }
+	/* 58 */
+	67.4% { transform: translate(-0.3vh, 2.6vh) rotate(0deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(-0.3vh, 1.8vh) rotate(-3deg); }
+	57.0% { transform: translate(-0.3vh, 1.8vh) rotate(-3deg); }
+	/* 42 */
+	48.8% { transform: translate(0.3vh, 2.9vh) rotate(-3deg); }
+	/* 34 - 27 */
+	39.5% { transform: translate(7.1vh, 7.5vh) rotate(-6deg); }
+	31.4% { transform: translate(7.1vh, 7.5vh) rotate(-6deg); }
+	/* 25 - 10 */
+	29.1% { transform: translate(0.8vh, -1vh) rotate(0deg); }
+	00.0% { transform: translate(0.8vh, -1vh) rotate(0deg); }
+}
+	.person__face1 .person__leftbrow::before {
+		top: -0.1vh; left: 0vh;
+		width: 7vh; height: 1.6vh;
+		border-radius: 0 2% 2% 0 / 0 50% 50% 0;
+		border-right: 0.2vh solid #000001;
+	}
+	.person__face1 .person__leftbrow::after {
+		top: -0.2vh; left: 0vh;
+		width: 7.4vh; height: 1.6vh;
+		border-radius: 0 2% 2% 0 / 0 50% 50% 0;
+		border-right: 0.2vh solid #000001;
+	}
+
+.person__face1 .person__nose {
+	top: 11vh; left: 13.3vh;
+	width: 10vh; height: 9.6vh;
+	border-radius: 30% 10% 10% 7% / 70% 10% 10% 30%;
+	border-left: 0.2vh solid #c55d4e;
+	border-top: 0.2vh solid transparent;
+	border-bottom: 0.2vh solid transparent;
+
+	animation: face1Nose var(--animation);
+}
+@keyframes face1Nose {
+	/* 86 - 68 */
+	100%  { transform: translate(0vh, 0vh) rotate(0deg); }
+	79.1% { transform: translate(0vh, 0vh) rotate(0deg); }
+	/* 60 - 58 */
+	69.8% { transform: translate(0vh, 0.6vh) rotate(0deg); }
+	67.4% { transform: translate(0vh, 0.6vh) rotate(0deg); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0vh, 1vh) rotate(0deg); }
+	57.0% { transform: translate(0vh, 1vh) rotate(0deg); }
+	/* 42 */
+	48.8% { transform: translate(0.4vh, 1.3vh) rotate(0deg); }
+	/* 34 - 10 */
+	39.5% { transform: translate(5.1vh, 4.8vh) rotate(-12.4deg); }
+	00.0% { transform: translate(5.1vh, 4.8vh) rotate(-12.4deg); }
+}
+	.person__face1 .person__nose::before {
+		top: 8.6vh; left: -9.4vh;
+		width: 10vh; height: 5.4vh;
+		border-right: 0.2vh solid #c55d4e;
+		border-top: 0.2vh solid transparent;
+		border-bottom: 0.2vh solid transparent;
+		border-radius: 10% 20% 40% 10% / 10% 40% 60% 10%;
+	}
+
+.person__face1 .person__forelock {
+	top: -5vh; left: -5vh;
+	width: 34vh; height: 18vh;
+	background: linear-gradient(0deg, #5f140c, #48171b 64%, transparent calc(64% + 1px));
+	clip-path: polygon(0% 100%, 17% 88%, 19.4% 71%, 19.2% 85.2%, 24.2% 82.4%, 29.2% 80.9%, 29.9% 57%, 33.1% 78.9%, 40.1% 77.6%, 49.1% 76.4%, 60.1% 76.9%, 73.3% 81%, 75.3% 55%, 78.6% 83.5%, 85.6% 86.5%, 100% 100%, 100% 0%, 0% 0%);
+
+	animation: face1Forelock var(--animation);
+}
+@keyframes face1Forelock {
+	/* 86 - 74 */
+	100%  { transform: translate(0vh, 0vh); }
+	86.0% { transform: translate(0vh, 0vh); }
+	/* 68 */
+	79.1% { transform: translate(0vh, 0.4vh); }
+	/* 60 - 58 */
+	69.8% { transform: translate(0vh, 0.9vh); }
+	67.4% { transform: translate(0vh, 0.9vh); }
+	/* 57 - 49 */
+	66.3% { transform: translate(0vh, 0.6vh); }
+	57.0% { transform: translate(0vh, 0.6vh); }
+	/* 42 */
+	48.8% { transform: translate(0.7vh, 0.8vh); }
+	/* 34 - 0 */
+	39.5% { transform: translate(4.7vh, 3.9vh); }
+	00.0% { transform: translate(4.7vh, 3.9vh); }
+}
+
+.person__face2 {
+	top: -42vh; left: -0.7vh;
+	width: 22.4vh; height: 37.3vh;
+	background: #e5926b;
+	border-radius: 20% 80% 15% 85% / 40% 40% 18% 34%;
+	background-position: -7.4vh 19vh, 0vh 7vh, 0 0;
+
+	animation: face2 var(--animation);
+}
+@keyframes face2 {
+	100%  { opacity: 0;
+					transform: translate(0vh, 0vh) rotate(-4deg); }
+	/* 32 */
+	37.31% { opacity: 0; }
+	37.3% { opacity: 1;
+					transform: translate(0vh, 0vh) rotate(-4deg); }
+	/* 29 - 23 */
+	33.7% { transform: translate(0.1vh, 0vh) rotate(-4deg); }
+	29.1% { transform: translate(0.1vh, 0vh) rotate(-4deg); }
+	/* 23 */
+	26.7% { transform: translate(-0.1vh, 0.5vh) rotate(-4.5deg); }
+	/* 10 */
+	11.6% { transform: translate(0.3vh, 0.8vh) rotate(-4.5deg); }
+	/* 3 */
+	03.5% { transform: translate(1.7vh, 0.4vh) rotate(-1.5deg); }
+	/* 0 */
+	00.0% { opacity: 1;
+					transform: translate(1.8vh, 0.1vh) rotate(-0.5deg); }
+}
+	.person__face2::before {
+		top: 19vh; left: -18vh;
+		width: 22.5vh; height: 13.7vh;
+		background: radial-gradient(circle at 70% 20%, #5f140c, #3c1522);
+		border-radius: 10% 10% 40% 60% / 20% 40% 60% 80%;
+
+		animation: face2Before var(--animation);
+	}
+	@keyframes face2Before {
+		100%  { transform: translate(0vh, 0vh); }
+		/* 32 */
+		37.2% { transform: translate(0vh, 0vh); }
+		/* 29 - 10 */
+		33.7% { transform: translate(0.3vh, 0vh); }
+		11.6% { transform: translate(0.3vh, 0vh); }
+		/* 3 */
+		03.5% { transform: translate(0vh, -1.6vh); }
+		/* 0 */
+		00.0% { transform: translate(0.6vh, -1vh); }
+	}
+	.person__face2 > div:nth-child(1) {}
+		.person__face2 > div:nth-child(1)::before {
+			/* left cheek */
+			top: 19.3vh; left: 8.4vh;
+			width: 13vh; height: 7.5vh;
+			background: #cf6f5e;
+			border-radius: 50%;
+
+			animation: face2Div1Before var(--animation);
+		}
+		@keyframes face2Div1Before {
+			100%  { transform: translate(0vh, 0vh) rotate(36deg) scale(1, 1); }
+			/* 32 */
+			37.2% { transform: translate(0vh, 0vh) rotate(36deg) scale(1, 1); }
+			/* 29 - 23 */
+			33.7% { transform: translate(0.6vh, -0.5vh) rotate(36deg) scale(1, 1); }
+			26.7% { transform: translate(0.6vh, -0.5vh) rotate(36deg) scale(1, 1); }
+			/* 10 - 3 */
+			11.6% { transform: translate(0.7vh, -0.7vh) rotate(37deg) scale(1, 1); }
+			3.5% { transform: translate(0.7vh, -0.7vh) rotate(37deg) scale(1, 1); }
+			/* 0 */
+			00.0% { transform: translate(0.9vh, -0.9vh) rotate(37deg) scale(1, 1); }
+		}
+		.person__face2 > div:nth-child(1)::after {
+			top: 15.7vh; left: 21.6vh;
+			width: 2.7vh; height: 9.5vh;
+			border-radius: 2vh;
+			box-sizing: border-box;
+			border: 0.3vh solid #f1dabf;
+
+			animation: face2Div1After var(--animation);
+		}
+		@keyframes face2Div1After {
+			100%  { transform: translate(0vh, 0vh) rotate(1deg) scale(1, 1); }
+			/* 32 */
+			37.2% { transform: translate(0vh, 0vh) rotate(1deg) scale(1, 1); }
+			/* 29 - 23 */
+			33.7% { transform: translate(0.6vh, -0.4vh) rotate(1deg) scale(0.8, 1); }
+			26.7% { transform: translate(0.6vh, -0.4vh) rotate(1deg) scale(0.8, 1); }
+			/* 10 - 3 */
+			11.6% { transform: translate(1vh, 0vh) rotate(3deg) scale(0.8, 1); }
+			03.5% { transform: translate(1vh, 0vh) rotate(3deg) scale(0.8, 1); }
+			/* 0 */
+			00.0% { transform: translate(1.2vh, -0.2vh) rotate(2deg) scale(0.8, 1); }
+		}
+
+.person__face2 .person__mouth {
+	top: 27.6vh; left: 19.7vh;
+	width: 3.3vh; height: 1.8vh;
+	background: #c65f4e;
+	border-radius: 80% 20% 30% 70% / 60% 40% 60% 40%;
+
+	animation: face2Mouth var(--animation);
+}
+@keyframes face2Mouth {
+	100%  { transform: translate(0vh, 0vh) rotate(-9deg) scale(1, 1); }
+	/* 32 */
+	37.2% { transform: translate(0vh, 0vh) rotate(-9deg) scale(1, 1); }
+	/* 29 - 23 */
+	33.7% { transform: translate(0.8vh, -0.2vh) rotate(-9deg) scale(0.9, 0.9); }
+	26.7% { transform: translate(0.8vh, -0.2vh) rotate(-9deg) scale(0.9, 0.9); }
+	/* 10 */
+	11.6% { transform: translate(0.8vh, 0vh) rotate(-9deg) scale(0.9, 0.9); }
+	/* 3 */
+	03.5% { transform: translate(0.7vh, 0.1vh) rotate(-9deg) scale(0.9, 0.9); }
+	/* 0 */
+	00.0% { transform: translate(0.7vh, -0.3vh) rotate(-9deg) scale(0.9, 0.9); }
+}
+	.person__face2 .person__mouth::before {
+		top: 0.7vh; left: -0.7vh;
+		width: 4vh; height: 3.1vh;
+		background: #fefdf9;
+		box-shadow: inset -0.8vh -0.5vh #c65f4e, inset -0.2vh -1.4vh 0 0.4vh #c65f4e;
+		border-radius: 0 20% 30% 70% / 0 50% 50% 100%;
+
+		animation: face2MouthBefore var(--animation);
+	}
+	@keyframes face2MouthBefore {
+		100%  { transform: translate(0vh, 0vh) scale(1, 1) rotate(23deg); }
+		/* 32 */
+		37.2% { transform: translate(0vh, 0vh) scale(1, 1) rotate(23deg); }
+		/* 29 - 0 */
+		33.7% { transform: translate(0.1vh, 0.2vh) scale(0.9, 0.9) rotate(23deg); }
+		00.0% { transform: translate(0.1vh, 0.2vh) scale(0.9, 0.9) rotate(23deg); }
+	}
+	.person__face2 .person__mouth::after {
+		top: -6.3vh; left: -1.3vh;
+		width: 4.9vh; height: 7.1vh;
+		border-left: 0.2vh solid transparent;
+		border-radius: 0 0 0% 100% / 0 0 0% 44%;
+		border-bottom: 0.25vh solid #000000;
+		transform: translate(0vh, 0vh) rotate(12deg);
+	}
+
+.person__face2 .person__lefteye {
+	top: 16.8vh; left: 13.6vh;
+	width: 5.1vh; height: 2.5vh;
+	background: radial-gradient(circle, #000001 34%, transparent calc(34% + 1px)) 1vh 0.1vh no-repeat, #fefdf9;
+	border-radius: 40% 60% 30% 70% / 70% 95% 5% 30%;
+	box-shadow: inset 1.1vh 1.4vh 0 -1vh #000001, inset 0.3vh 0.4vh 0 0vh #000001;
+
+	animation: face2Lefteye var(--animation);
+}
+@keyframes face2Lefteye {
+	100%  { box-shadow: inset 1.1vh 1.4vh 0 -1vh #000001, inset 0.3vh 0.4vh 0 0vh #000001;
+					background-position: 1vh 0.1vh;
+					transform: translate(0vh, 0vh) scale(1, 1) rotate(5deg); }
+	/* 32 */
+	37.2% { transform: translate(0vh, 0vh) scale(1, 1) rotate(5deg); }
+	/* 29 - 23 */
+	33.7% { background-position: 1vh 0.1vh;
+					transform: translate(1.3vh, -1vh) scale(0.9, 1.1) rotate(8deg); }
+	29.1% { background-position: 1vh 0.1vh;
+					transform: translate(1.3vh, -1vh) scale(0.9, 1.1) rotate(8deg); }
+	/* 23 */
+	26.7% { background-position: 1.7vh 0.2vh;
+					transform: translate(1.3vh, -1.1vh) scale(0.9, 1.1) rotate(8deg); }
+	/* 10 */
+	11.6% { box-shadow: inset 1vh 1.3vh 0 -1vh black, inset 0.2vh 0.4vh 0 0vh black;
+					transform: translate(1.5vh, -0.8vh) scale(0.9, 1.1) rotate(8deg); }
+	/* 3 */
+	03.5% { box-shadow: inset 1vh 3.3vh 0 -1vh black, inset 0.2vh 0.4vh 0 0vh black;
+					background-position: 1.7vh 0.2vh;
+					transform: translate(1.9vh, 1vh) scale(0.9, 0.3) rotate(33deg); }
+	/* 0 */
+	00.0% { box-shadow: inset 1vh 1.3vh 0 -1vh black, inset 0.2vh 0.4vh 0 0vh black;
+					background-position: 2.4vh 0.4vh;
+					transform: translate(1.5vh, -1vh) scale(0.9, 1.1) rotate(6deg); }
+}
+	.person__face2 .person__lefteye::before {
+		top: -2.7vh; left: -2.7vh;
+		width: 11.6vh; height: 5.9vh;
+		background: radial-gradient(at 50% 50%, transparent 62%, #000001 calc(62% + 1px)) 0.8vh 0.3vh no-repeat;
+		border-radius: 50%;
+		clip-path: polygon(0% 75%, 85% 100%, 0% 100%);
+		transform: rotate(-6deg);
+	}
+
+.person__face2 .person__leftbrow {
+	top: 14.9vh; left: 12.7vh;
+	width: 5.8vh; height: 1.3vh;
+	background: radial-gradient(#000001 70%, transparent calc(70% + 1px)) -0.5vh 0vh / 7.6vh 6vh;
+
+	animation: face2Leftbrow var(--animation);
+}
+@keyframes face2Leftbrow {
+	100%  { transform: translate(0vh, 0vh) rotate(-1deg); }
+	/* 32 */
+	37.2% { transform: translate(0vh, 0vh) rotate(-1deg); }
+	/* 29 - 25 */
+	33.7% { transform: translate(0.8vh, -0.6vh) rotate(-1deg); }
+	29.1% { transform: translate(0.8vh, -0.6vh) rotate(-1deg); }
+	/* 23 */
+	26.7% { transform: translate(0.8vh, -1.9vh) rotate(0deg); }
+	/* 10 */
+	11.6% { transform: translate(1vh, -0.9vh) rotate(0deg); }
+	/* 3 */
+	03.5% { transform: translate(1.1vh, 0.4vh) rotate(0deg); }
+	/* 0 */
+	00.0% { transform: translate(1.3vh, -0.6vh) rotate(0deg); }
+}
+	.person__face2 .person__leftbrow::before {
+		top: -0.1vh; left: 0vh;
+		width: 6.1vh; height: 1.6vh;
+		border-radius: 0 2% 2% 0 / 0 50% 50% 0;
+		border-right: 0.2vh solid #000001;
+	}
+
+.person__face2 .person__nose {
+	top: 13.8vh; left: 20.3vh;
+	width: 10vh; height: 8.6vh;
+	border-radius: 20% 10% 10% 4% / 70% 10% 10% 30%;
+	border-left: 0.2vh solid #c55d4e;
+	border-top: 0.2vh solid transparent;
+	border-bottom: 0.2vh solid transparent;
+	box-shadow: -2.1vh 0.9vh 0 -1vh #e5926b;
+
+	animation: face2Nose var(--animation);
+}
+@keyframes face2Nose {
+	100%  { transform: translate(0vh, 0vh) rotate(-14.4deg); }
+	/* 32 */
+	37.2% { transform: translate(0vh, 0vh) rotate(-14.4deg); }
+	/* 29 - 3 */
+	33.7% { transform: translate(0.6vh, 0vh) rotate(-14.4deg); }
+	03.5% { transform: translate(0.6vh, 0vh) rotate(-14.4deg); }
+	/* 0 */
+	00.0% { transform: translate(0.6vh, -0.3vh) rotate(-14.2deg); }
+}
+	.person__face2 .person__nose::before {
+		top: 9.2vh; left: -4.9vh;
+		width: 5vh; height: 3.5vh;
+		border-radius: 10% 0% 20% 10% / 10% 40% 50% 10%;
+		box-shadow: inset -0.1vh 0vh #c55d4e;
+		background: #e5926b;
+		transform: rotate(-8deg);
+	}
+
+.person__face2 .person__forelock {
+	top: -4vh; left: -6vh;
+	width: 24.6vh; height: 26vh;
+	background: linear-gradient(50deg, #5f140c, #3c1522);
+	border-radius: 25% 75% 10% 10% / 20% 55% 10% 10%;
+	clip-path: polygon(0% 100%, 12% 100%, 35% 49%, 38.3% 48.7%, 44.3% 28.4%, 45.9% 48.1%, 61.6% 47%, 58.7% 29.3%, 69% 47.3%, 82% 46.5%, 100% 46.5%, 100% 0%, 0% 0%);
+
+	animation: face2Forelock var(--animation);
+}
+@keyframes face2Forelock {
+	100%  { transform: translate(4.7vh, 3.9vh) rotate(0deg); }
+	/* 32 */
+	37.2% { transform: translate(4.7vh, 3.9vh) rotate(0deg); }
+	/* 29 - 23 */
+	33.7% { transform: translate(5.1vh, 3.6vh) rotate(0deg); }
+	26.7% { transform: translate(5.1vh, 3.6vh) rotate(0deg); }
+	/* 10 */
+	11.6% { transform: translate(5.9vh, 3.2vh) rotate(3deg); }
+	/* 3 */
+	03.5% { transform: translate(6.2vh, 2.7vh) rotate(3deg); }
+	/* 0 */
+	00.0% { transform: translate(6.7vh, 2.5vh) rotate(3deg); }
+}
+
+.person__face2 .person__glasses2 {
+	top: 18.2vh; left: 2.6vh;
+	width: 16.4vh; height: 0.4vh;
+	background: #f6e5d7;
+
+	animation: glasses2 var(--animation);
+}
+@keyframes glasses2 {
+	100%  { transform: translate(0vh, 0vh) rotate(1deg); }
+	/* 32 */
+	37.2% { transform: translate(0vh, 0vh) rotate(1deg); }
+	/* 29 - 23 */
+	33.7% { transform: translate(0.8vh, -0.6vh) rotate(1deg); }
+	26.7% { transform: translate(0.8vh, -0.6vh) rotate(1deg); }
+	/* 10 */
+	11.6% { transform: translate(0.9vh, -0.8vh) rotate(3deg); }
+	/* 3 */
+	03.5% { transform: translate(0.9vh, -0.8vh) rotate(3deg); }
+	/* 0 */
+	00.0% { transform: translate(1.3vh, -1.1vh) rotate(3deg); }
+}
+	.person__face2 .person__glasses2::before {
+		top: -3vh; left: 16.2vh;
+		width: 3.4vh; height: 9.9vh;
+		box-sizing: border-box;
+		border: 0.3vh solid #f1dabf;
+		border-radius: 2vh;
+		transform-origin: top left;
+
+		animation: glasses2Before var(--animation);
+	}
+	@keyframes glasses2Before {
+			100%  { transform: translate(0vh, 0vh) scale(1, 1); }
+			/* 32 */
+			37.2% { transform: translate(0vh, 0vh) scale(1, 1); }
+			/* 29 - 23 */
+			33.7% { transform: translate(0.4vh, 0vh) scale(0.8, 1); }
+			26.7% { transform: translate(0.4vh, 0vh) scale(0.8, 1); }
+			/* 10 - 3 */
+			11.6% { transform: translate(0.6vh, 0vh) scale(0.8, 1); }
+			03.5% { transform: translate(0.6vh, 0vh) scale(0.8, 1); }
+			/* 0 */
+			00.0% { transform: translate(0.4vh, 0vh) scale(0.8, 1); }
+    }

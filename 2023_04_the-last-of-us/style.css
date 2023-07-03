@@ -1,0 +1,205 @@
+html {
+	height: 100%;
+}
+body {
+	position: relative;
+	margin: 0;
+	min-height: 675px;
+	height: 100%;
+	overflow-y: hidden;
+  --black: #1b1618;
+  --lightblue: #31a2b4;
+  --blue: #0e7593;
+  --darkblue: #073c47;
+  --darkred: #a90708;
+  --red: #ef1914;
+  --lightred: #ff5c34;
+  --skintone: #ff983d;
+}
+body::before {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%; height: 100%;
+	background: linear-gradient(var(--darkblue) calc(100% - 170px), transparent 96%), linear-gradient(0deg, var(--red) 240px, transparent 0) calc(50% - 310px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 140px, transparent 0) calc(50% - 290px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 105px, transparent 0) calc(50% - 240px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 120px, transparent 0) calc(50% - 215px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 240px, transparent 0) calc(50% + 10px) 0 / 465px 100% no-repeat, linear-gradient(0deg, var(--red) 130px, transparent 0) calc(50% + 240px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 110px, transparent 0) calc(50% + 260px) 0 / 50px 100% no-repeat, linear-gradient(0deg, var(--red) 200px, transparent 0) calc(50% + 310px) 0 / 50px 100% no-repeat, var(--darkblue);
+	z-index: -1;
+}
+body::after {
+	content: '';
+	position: absolute;
+	display: block;
+	width: 100%; height: 100%;
+	--noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.25' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+	background: var(--noise) 0 / 300px repeat;
+	mix-blend-mode: overlay;
+	z-index: -1;
+}
+
+body *, body *::after, body *::before {
+	position: absolute;
+	content: '';
+}
+
+.ellie {
+  bottom: 0; left: 50%;
+  height: 155px; width: 245px;
+  background: var(--lightblue);
+	border-radius: 50% 50% 0 0 / 75% 100% 0 0;
+	translate: -85px 0;
+}
+.ellie::before {
+  top: 66px; left: -53px;
+  height: 130px; width: 120px;
+  background: linear-gradient(300deg, var(--black) 40%, var(--darkblue));
+	border-radius: 60px 0 0 0;
+	transform-origin: top right;
+	rotate: -20deg;
+}
+.ellie::after {
+  top: 80px; left: 205px;
+  height: 80px; width: 76px;
+  background: linear-gradient(290deg, var(--black) 75%, transparent 76%);
+	border-radius: 0 60px 0 0;
+}
+.ellie-head {
+  top: -50px; left: 115px;
+  height: 220px; width: 85px;
+  background: linear-gradient(var(--darkred), var(--darkred)) 0 110% / 100% 50% no-repeat, linear-gradient(220deg, var(--red) 55%, var(--skintone)) 0 0/ 100% 58%;
+}
+.ellie-head::before {
+  top: -164px; left: -95px;
+  height: 100px; width: 100px;
+  background: var(--black);
+	border-radius: 50%;
+	box-shadow: 50px 75px 0 -12px var(--red), 0 55px var(--black);
+}
+.ellie-head::after {
+  top: -52px; left: -95px;
+  height: 100px; width: 50px;
+  background: var(--black);
+	border-radius: 99em 0 0 99em;
+	filter: drop-shadow(45px 0 var(--black));
+	z-index: -1;
+}
+.ellie-face {
+  top: -182px; left: -37px;
+  height: 180px; width: 180px;
+  background: var(--black);
+	border-radius: 50%;
+}
+.ellie-face::before {
+  top: 27px; left: 36px;
+  height: 220px; width: 148px;
+  background: linear-gradient(160deg, transparent 35%, var(--black) 36%, var(--black) 60%, transparent 61%) 107px 63px / 25px 14px no-repeat, linear-gradient(150deg, transparent 39%, var(--red) 40%, var(--red) 67%, transparent 68%) 82px 160px / 14px 12px no-repeat, linear-gradient(var(--red), var(--red)) 95px 160px / 4px 12px no-repeat, linear-gradient(var(--skintone), var(--red)) 81px 100px / 25px 45px no-repeat, radial-gradient(var(--red) 70%, transparent 71%) 81px 132px / 30px 30px no-repeat, radial-gradient(var(--lightred), transparent 71%) 10px 120px / 60px 60px no-repeat, linear-gradient(22deg, var(--skintone) 54%, transparent 0) 50px 110px / 30px 30px no-repeat, linear-gradient(-20deg, var(--skintone) 54%, transparent 0) 100px 110px / 30px 30px no-repeat, radial-gradient(var(--black) 70%, transparent 71%) 55px 112px / 18px 18px no-repeat, radial-gradient(var(--black) 70%, transparent 71%) 105px 112px / 18px 18px no-repeat, var(--skintone);
+	border-radius: 99em;
+	box-shadow: 13px 62px 0 -46px var(--skintone)
+}
+.ellie-face::after {
+  top: 89px; left: 65px;
+  height: 40px; width: 40px;
+  border-color: var(--black) transparent transparent;
+	border-width: 5px;
+	border-style: solid;
+	border-radius: 50%;
+	rotate: 14deg
+}
+.ellie-hair {
+  top: -108px; left: 142px;
+  height: 44px; width: 15px;
+	border: 4px solid var(--black);
+	border-left: 0;
+	border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+	filter: drop-shadow(0 96px var(--black))
+}
+.ellie-hair::before {
+  top: 44px; left: -15px;
+  height: 44px; width: 15px;
+  border: 4px solid var(--black);
+	border-right: 0;
+	border-radius: 100% 0 0 100% / 50% 0 0 50%;
+}
+.ellie-hair--2 {
+	left: 0;
+}
+.joel {
+  bottom: 390px; left: 50%;
+  height: 240px; width: 225px;
+  background: linear-gradient(-90deg, var(--black) 65%, transparent 97%);
+	border-radius: 0 115px 35px 50px;
+	translate: -160px 0;
+}
+.joel::before {
+  top: 200px; left: 50px;
+  height: 100px; width: 139px;
+  background: linear-gradient(90deg, var(--darkred), var(--red));
+}
+.joel::after {
+  top: 308px; left: 10px;
+  height: 40px; width: 190px;
+  background: linear-gradient(110deg, var(--darkred) 20%, transparent 0), linear-gradient(var(--red), var(--skintone)) 0 0 / 30% 100% no-repeat, linear-gradient(-60deg, var(--red), var(--skintone));
+	transform-origin: top left;
+	rotate: -20deg;
+}
+.joel-head {
+  top: 102px; left: -32px;
+  height: 167px; width: 221px;
+  background: linear-gradient(20deg, transparent 45%, var(--black) 46%, var(--black) 58%, transparent 59%) 100px 59px / 70px 25px no-repeat, linear-gradient(-20deg, transparent 40%, var(--black) 41%, var(--black) 58%, transparent 59%) 7px 59px / 40px 20px no-repeat, conic-gradient(from 1.2rad, transparent 62%, var(--darkred) 0) 70px 92px / 30px 30px no-repeat, linear-gradient(45deg, var(--red), transparent 60%) 77px 11px / 30px 30px no-repeat, radial-gradient(var(--black) 70%, transparent 71%) 145px -67px / 150px 150px no-repeat, linear-gradient(90deg, rgba(0 0 0 / 20%) 1.5px, transparent 0) 1px 100px / 9px 70px repeat-x, linear-gradient(-20deg, var(--blue) 23%, var(--skintone) 30%), var(--skintone);
+	clip-path: polygon(0 0, 100% 0, 100% 68%, 37% 100%, 22% 93%, 22% 81%, 0 71%)
+}
+.joel-head::before {
+  top: 37px; left: 0;
+  height: 22px; width: 70px;
+  background: var(--black);
+	border-radius: 0 0 0 99em;
+	box-shadow: 77px 0 var(--black), 100px 0 var(--black)
+}
+.joel-head::after {
+  top: 37px; left: 47px;
+  height: 60px; width: 60px;
+  background: radial-gradient(var(--red) 70%, transparent 71%) 25px 30px / 30px 30px no-repeat, linear-gradient(90deg, var(--red) 30px, transparent 0);
+	clip-path: polygon(0 0, 0% 100%, 92% 68%, 92% 0%);
+}
+.joel-face {
+  top: 105px; left: 84px;
+  height: 13px; width: 21px;
+  background: var(--red);
+	transform-origin: top left;
+	transform: skewY(-20deg)
+}
+.joel-face::before {
+  bottom: 0; left: -21px;
+  height: 100%; width: 100%;
+  background: linear-gradient(-90deg, var(--red), var(--skintone));
+	transform-origin: top right;
+	transform: skewY(34deg)
+}
+.joel-face::after {
+  top: -30px; left: -37px;
+  height: 55px; width: 85px;
+  background: linear-gradient(0deg, transparent 60%, var(--black) 61%, var(--black) 74%) 0 0 / 50% 100% no-repeat, linear-gradient(37deg, transparent 54%, var(--black) 55%, var(--black) 74%, transparent 75%);
+}
+.joel-hair {
+  top: 142px; left: 189px;
+  height: 70px; width: 35px;
+  background: var(--red);
+	border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+}
+.joel-hair::after {
+  top: -77px; left: -265px;
+  height: 60px; width: 170px;
+  background: linear-gradient(-90deg, var(--black) 70%, var(--blue));
+	border-radius: 0 0 65% 60px / 0 0 100% 60px;
+}
+.joel-hair::before {
+  top: -77px; left: -240px;
+  height: 60px; width: 170px;
+  background: linear-gradient(-90deg, var(--black) 70%, var(--blue));
+	border-radius: 0 0 65% 60px / 0 0 100% 60px;
+	transform-origin: top right;
+	rotate: 20deg
+}
+.joel-body {
+  top: 310px; left: 24px;
+  height: 320px; width: 200px;
+  background: linear-gradient(var(--black) 2px, transparent 0) 0 6px / 100% 23px, linear-gradient(90deg, var(--black) 2px, transparent 0) 11px 0 / 23px 100%, var(--darkred);
+}

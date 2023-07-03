@@ -1,0 +1,459 @@
+.poster {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 1200px; height: 630px;
+  margin: auto;
+  --main-color: #4C4C4C;
+  --skin-color: #FFFFFF;
+  --shadow-color: rgba(0, 0, 0, 0.14);
+  border: 8px solid var(--main-color);
+  border-radius: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.poster__text {
+  position: absolute;
+  top: 424px; left: 50%;
+  padding: 10px 90px 20px 50px;
+  background: white;
+  border-radius: 42px;
+  border: 8px solid var(--main-color);
+  transform: translateX(-50%);
+  filter: grayscale(1);
+  box-shadow: inset -10px 0 var(--shadow-color);
+  z-index: 1;
+}
+.poster__text svg { width: 800px; }
+.nikita {
+  position: relative;
+  background: #e9ecef;
+  overflow: hidden;
+}
+.nikita::before, .nikita::after, .nikita *, .nikita *::before, .nikita *::after {
+  content: '';
+  position: absolute;
+}
+.nikita::before {
+  top: 193px; left: -8px;
+  width: 92px; height: 190px;
+  background: var(--main-color);
+  box-shadow: 138px -161px 0 4px var(--main-color), 94px -195px 0 4px var(--main-color), 65px -8px 0 4px var(--main-color);
+  border-radius: 9em;
+  transform: rotate(20deg);
+}
+.nikita::after {
+  top: 193px; left: 212px;
+  width: 92px; height: 190px;
+  background: var(--main-color);
+  box-shadow: -140px -159px 0 4px var(--main-color), -117px -204px 0 4px var(--main-color), -67px -10px 0 4px var(--main-color);
+  border-radius: 9em;
+  transform: rotate(-20deg);
+}
+.nikita__head {
+  top: 46px; left: 15px;
+  width: 249px; height: 249px;
+  border: 8px solid var(--main-color);
+  border-radius: 9em;
+  background: var(--skin-color);
+  box-shadow: inset -10px 0 var(--shadow-color);
+  z-index: 1;
+}
+.nikita__head::before {
+  width: 110px; height: 110px;
+  left: 83px; top: -64px;
+  background: var(--main-color);
+  box-shadow: -66px 1px 0 -16px var(--main-color);
+  border-radius: 999px;
+}
+.nikita__head::after {
+  top: 162px; left: 102px;
+  width: 44px; height: 14px;
+  border-radius: 0 0 100% 100% / 0 0 200% 200%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 18px, white 0%) 0 -21px / 100% 32px;
+}
+.nikita__eye {
+  width: 84px; height: 84px;
+  border: 3px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(white 71%, transparent 72%) 6px 32px / 25px 25px no-repeat, radial-gradient(var(--main-color) 71%, transparent 72%) 17px 17px / 50px 50px no-repeat, white;
+}
+.nikita__eye::before {
+  left: -4px; top: -20px;
+  width: 90px; height: 28px;
+  border-radius: 9em;
+  background: var(--main-color);
+}
+.nikita__eye_right {
+  top: 66px; left: 141px;
+}
+.nikita__eye_left {
+  top: 66px; left: 20px;
+}
+.nikita__ear-left {
+  width: 92px; height: 92px;
+  left: -73px; top: 87px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(147deg);
+}
+.nikita__ear-left::before {
+  top: 27px; right: 50px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.nikita__ear-right {
+  width: 92px; height: 92px;
+  left: 227px; top: 87px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(-46deg);
+}
+.nikita__ear-right::before {
+  top: 21px; left: 45px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+  transform: rotate(70deg);
+}
+.nikita__neck {
+  top: 361px; left: 26px;
+  width: 242px; height: 114px;
+  background: var(--main-color);
+  border-radius: 50% 50% 4px 4px / 60% 60% 4px 4px;
+  box-shadow: inset -10px -2px var(--shadow-color);
+  z-index: 1;
+}
+.nikita__neck::before {
+  top: -67px; left: 83px;
+  width: 70px; height: 82px;
+  border: 3px solid var(--main-color);
+  background: radial-gradient(var(--shadow-color) 71%, transparent 0%) center center / 120% 40% no-repeat, white;
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
+  box-shadow: inset -10px 10px var(--shadow-color);
+}
+.nikita__beard {
+  top: 125px; left: 4px;
+  width: 240px; height: 166px;
+  background: radial-gradient(ellipse at 50% 0%, white 8%, transparent 0%) center center / 880% 100% no-repeat, radial-gradient(circle at 50% 50%, var(--shadow-color) 3px, transparent 0%) 0 0 / 40px 20px, radial-gradient(circle at 50% 50%, var(--shadow-color) 3px, transparent 0%) 20px 10px / 40px 20px, var(--main-color);
+  border-radius: 0px 0px 9em 9em;
+  box-shadow: inset -10px 0 var(--shadow-color);
+}
+
+
+
+.andrey {
+  position: relative;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+.andrey::before, .andrey::after, .andrey *, .andrey *::before, .andrey *::after {
+  content: '';
+  position: absolute;
+}
+.andrey::before {
+  top: 33px; left: 7px;
+  width: 240px; height: 265px;
+  border-radius: 9em;
+  background: var(--main-color);
+}
+.andrey::after {
+  width: 242px; height: 266px;
+  left: -4px; top: 132px;
+  border-radius: 9em;
+  background: var(--main-color);
+  transform: rotate(15deg);
+}
+.andrey__head {
+  top: 66px; left: 15px;
+  width: 249px; height: 249px;
+  border: 8px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(circle at -10% -197%, var(--main-color) 70%, transparent 0%), radial-gradient(circle at 50% -60%, var(--skin-color) 70%, transparent 0%), radial-gradient(circle at 50% 50%, var(--shadow-color) 3px, transparent 0%) 0 0 / 40px 20px, radial-gradient(circle at 50% 50%, var(--shadow-color) 3px, transparent 0%) 20px 10px / 40px 20px, var(--skin-color);
+  box-shadow: inset -10px -4px var(--shadow-color);
+  z-index: 1;
+}
+.andrey__head::before {
+  width: 58px; height: 12px;
+  top: -18px; left: 65px;
+  border-radius: 9em;
+  background: white;
+  transform: rotate(-13deg);
+}
+.andrey__head::after {
+  top: 140px; left: 125px;
+  width: 34px; height: 14px;
+  border-radius: 0 0 100% 100% / 0 0 200% 200%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 14px, var(--main-color) 0%) 0 -21px / 100% 32px;
+}
+.andrey__eye {
+  width: 84px; height: 84px;
+  border: 3px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(white 71%, transparent 72%) 19px 32px / 25px 25px no-repeat, radial-gradient(var(--main-color) 71%, transparent 72%) 29px 17px / 50px 50px no-repeat, white;
+}
+.andrey__eye::before {
+  top: -33px; left: -10px;
+  width: 90px; height: 28px;
+  border-radius: 9em;
+  background: var(--main-color);
+}
+.andrey__eye_right { top: 55px; left: 156px; }
+.andrey__eye_left { top: 55px; left: 36px; }
+.andrey__ear-left {
+  top: 87px; left: -55px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(147deg);
+}
+.andrey__ear-left::before {
+  top: 27px; right: 50px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.andrey__ear-right {
+  top: 160px; left: 238px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(-42deg);
+}
+.andrey__ear-right::before {
+  top: 21px; left: 45px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+  transform: rotate(70deg);
+}
+.andrey__neck {
+  top: 381px; left: 31px;
+  width: 242px; height: 114px;
+  background: var(--main-color);
+  border-radius: 50% 50% 4px 4px / 60% 60% 4px 4px;
+  box-shadow: inset -10px -2px var(--shadow-color);
+  z-index: 1;
+}
+.andrey__neck::before {
+  top: -67px; left: 83px;
+  width: 70px; height: 82px;
+  border: 3px solid var(--main-color);
+  background: radial-gradient(var(--shadow-color) 71%, transparent 0%) center -9px / 120% 40% no-repeat, white;
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
+  box-shadow: inset -10px 10px var(--shadow-color);
+}
+
+
+
+.julia {
+  position: relative;
+  background: #eef1f5;
+  overflow: hidden;
+}
+.julia::before, .julia::after, .julia *, .julia *::before, .julia *::after {
+  content: '';
+  position: absolute;
+}
+.julia::before {
+  top: 114px; left: -1px;
+  width: 289px; height: 355px;
+  border-radius: 9em;
+  background: var(--main-color);
+}
+.julia__head {
+  top: 126px; left: 15px;
+  width: 249px; height: 249px;
+  border: 8px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(circle at 100% -197%, var(--main-color) 70%, transparent 0%), var(--skin-color);
+  box-shadow: inset -10px -4px var(--shadow-color);
+  z-index: 1;
+}
+.julia__head::after {
+  top: 152px; left: 105px;
+  width: 31px; height: 10px;
+  border-radius: 0 0 100% 100% / 0 0 200% 200%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 13px, var(--main-color) 0%) 0 -22px / 100% 30px;
+}
+.julia__eye {
+  width: 84px; height: 84px;
+  border: 3px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(white 71%, transparent 72%) 7px 32px / 25px 25px no-repeat, radial-gradient(var(--main-color) 71%, transparent 72%) 18px 17px / 50px 50px no-repeat, white;
+}
+.julia__eye_right::before {
+  top: -10px; left: 21px;
+  width: 66px; height: 17px;
+  border-radius: 9em;
+  background: var(--main-color);
+  transform: rotate(9deg);
+}
+.julia__eye_left::before {
+  top: -10px; left: -3px;
+  width: 66px; height: 17px;
+  border-radius: 9em;
+  background: var(--main-color);
+  transform: rotate(-9deg);
+}
+.julia__eye_right { top: 71px; left: 136px; }
+.julia__eye_left { top: 71px; left: 16px; }
+.julia__ear-left {
+  top: 87px; left: -77px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(147deg);
+}
+.julia__ear-left::before {
+  top: 27px; right: 50px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.julia__ear-right {
+  top: 87px; left: 222px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(-52deg);
+}
+.julia__ear-right::before {
+  top: 21px; left: 45px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+  transform: rotate(79deg);
+}
+.julia__neck {
+  top: 431px; left: 31px;
+  width: 242px; height: 114px;
+  background: var(--main-color);
+  border-radius: 50% 50% 4px 4px / 90% 90% 4px 4px;
+  box-shadow: inset -10px -2px var(--shadow-color);
+  z-index: 1;
+}
+.julia__neck::before {
+  top: -67px; left: 83px;
+  width: 70px; height: 82px;
+  border: 3px solid var(--main-color);
+  background: radial-gradient(var(--shadow-color) 71%, transparent 0%) center -9px / 120% 40% no-repeat, white;
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
+  box-shadow: inset -10px 10px var(--shadow-color);
+}
+.julia__eye_right::after {
+  top: -3px; left: -3px;
+  width: 90px; height: 90px;
+  background: radial-gradient(circle at 50% 50%, var(--skin-color) 66%, var(--main-color) 67%, var(--main-color) 70%, transparent 0%) 3px 61px / 120% 120% no-repeat;
+  border-radius: 9em;
+}
+.julia__eye_left::after {
+  top: -3px; left: -3px;
+  width: 90px; height: 90px;
+  background: radial-gradient(circle at 50% 50%, var(--skin-color) 66%, var(--main-color) 67%, var(--main-color) 70%, transparent 0%) -22px 61px / 120% 120% no-repeat;
+  border-radius: 9em;
+}
+.julia__ear-right::after {
+  top: 54px; left: 12px;
+  width: 10px; height: 10px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.julia__ear-left::after {
+  top: 10px; left: 46px;
+  width: 10px; height: 10px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+
+
+
+.vadim {
+  position: relative;
+  background: #f7f9fb;
+  overflow: hidden;
+}
+.vadim::before, .vadim::after, .vadim *, .vadim *::before, .vadim *::after {
+  content: '';
+  position: absolute;
+}
+.vadim__head {
+  top: 86px; left: 15px;
+  width: 249px; height: 249px;
+  border: 8px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(circle at 51% -22%, var(--main-color) 26%, transparent 0%), var(--skin-color);
+  box-shadow: inset -10px -4px var(--shadow-color);
+  z-index: 1;
+}
+.vadim__head::after {
+  top: 171px; left: 123px;
+  width: 34px; height: 14px;
+  border-radius: 0 0 100% 100% / 0 0 200% 200%;
+  background: radial-gradient(ellipse at 50% 50%, transparent 14px, var(--main-color) 0%) 0 -21px / 100% 32px;
+  transform: rotate(-20deg);
+}
+.vadim__eye {
+  width: 84px; height: 84px;
+  border: 3px solid var(--main-color);
+  border-radius: 9em;
+  background: radial-gradient(white 71%, transparent 72%) 0px 26px / 25px 25px no-repeat, radial-gradient(var(--main-color) 71%, transparent 72%) 11px 11px / 50px 50px no-repeat, white;
+}
+.vadim__eye::before {
+  top: -12px; left: -4px;
+  width: 90px; height: 28px;
+  border-radius: 9em;
+  background: var(--main-color);
+}
+.vadim__eye_right { top: 75px; left: 143px; }
+.vadim__eye_left { top: 75px; left: 22px; }
+.vadim__ear-left {
+  top: 87px; left: -69px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(147deg);
+}
+.vadim__ear-left::before {
+  top: 27px; right: 50px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.vadim__ear-right {
+  top: 87px; left: 228px;
+  width: 92px; height: 92px;
+  background: radial-gradient(white 40px, transparent 0), conic-gradient(var(--main-color) 0% 74%, transparent 74%);
+  border-radius: 9em;
+  transform: rotate(-47deg);
+}
+.vadim__ear-right::before {
+  top: 21px; left: 45px;
+  width: 3px; height: 40px;
+  background: var(--main-color);
+  border-radius: 9em;
+  transform: rotate(70deg);
+}
+.vadim__ear-right::after {
+  top: 54px; left: 12px;
+  width: 16px; height: 16px;
+  background: var(--main-color);
+  border-radius: 9em;
+}
+.vadim__neck {
+  top: 401px; left: 29px;
+  width: 242px; height: 114px;
+  background: var(--main-color);
+  border-radius: 50% 50% 4px 4px / 60% 60% 4px 4px;
+  box-shadow: inset -10px -2px var(--shadow-color);
+  z-index: 1;
+}
+.vadim__neck::before {
+  top: -67px; left: 83px;
+  width: 70px; height: 82px;
+  border: 3px solid var(--main-color);
+  background: radial-gradient(var(--shadow-color) 71%, transparent 0%) center -9px / 120% 40% no-repeat, white;
+  border-radius: 0 0 50% 50% / 0 0 20% 20%;
+  box-shadow: inset -10px 10px var(--shadow-color);
+}
